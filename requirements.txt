@@ -1,1 +1,9 @@
 Django==1.9.5
+Pillow==3.2.0
+argparse==1.2.1
+django-guardian==1.4.1
+django-userena==2.0.1
+easy-thumbnails==2.3
+html2text==2014.12.29
+six==1.10.0
+wsgiref==0.1.2
