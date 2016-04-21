@@ -2,7 +2,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>logpart</h1>
+
+
+<!-- breadcrumb -->
+
+<div class="row columns">
+    <nav aria-label="You are here:" role="navigation">
+        <ul class="breadcrumbs">
+            <li><a href="#">Home</a></li>
+            <li class="disabled">logpart</li>
+        </ul>
+    </nav>
+</div>
+
+<!-- fenetre inscription -->
+
+<div class="row">
+<div class="medium-6 medium-centered large-4 large-centered columns">
+
+<form class="log-in-form">
+<div class="row column ">
+  <h4 class="text-center">Inscription</h4>
+  <label>Email
+    <input type="text" placeholder="somebody@example.com">
+  </label>
+  <label>Password
+    <input type="text" placeholder="Password">
+  </label>
+  <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+  <p><a type="submit" class="button expanded">Log In</a></p>
+  <p class="text-center"> Or </p>
+  <p><a type="submit" class="button expanded">Log with Facebook</a></p>
+  <p class="text-center"><a href="#">Forgot your password?</a></p>
+</div>
+</form>
+
+</div>
+</div>
+
+
 
 
 {% endblock %}
