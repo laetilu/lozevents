@@ -1,0 +1,8 @@
+*.pyc
+.sass-cache
+*.db
+bower-components
+*.css
+media
+
+lozapp/models.py

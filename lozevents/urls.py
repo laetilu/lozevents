@@ -21,5 +21,7 @@ from django.conf import settings
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('lozapp.urls')),
+    url(r'^profile/', include('userena.urls')),
+
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

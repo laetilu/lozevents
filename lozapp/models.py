@@ -2,7 +2,46 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from django.utils.translation import ugettext as _
+from userena.models import UserenaBaseProfile
+from django.contrib.auth.models import User
+
+
 # Create your models here.
+
+class Categorie(models.Model):
+    name = models.CharField(max_length=45)
+
+    def __unicode__(self):
+        return "%s" % self.name
+
+
+class Pro(models.Model):
+    name = models.CharField(max_length=45)
+    adress = models.CharField(max_length=70)
+    siret = models.IntegerField()
+
+    user = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return "%s" % self.name
+
+
+class City(models.Model):
+    name = models.CharField(max_length=45)
+    cp = models.IntegerField()
+    gps_x = models.IntegerField()
+    gps_y = models.IntegerField()
+
+    def __unicode__(self):
+        return "%s" % self.name
+
+class Administrator(models.Model):
+    mail = models.EmailField(max_length=254)
+
+    def __unicode__(self):
+        return "%s" % self.mail
+
 
 class Event(models.Model):
     title = models.CharField(max_length=45)
@@ -15,7 +54,7 @@ class Event(models.Model):
     city = models.ForeignKey(City)
 
     def __unicode__(self):
-        return "%s" % self.titre
+        return "%s" % self.title
 
 
 class Validation_event(models.Model):
@@ -25,9 +64,10 @@ class Validation_event(models.Model):
     administrator = models.ForeignKey(Administrator)
     event = models.ForeignKey(Event)
 
-# class Administrator(models.Model):
-#     mail = models.EmailField(max_length=254)
-#     password =
+    def __unicode__(self):
+        return "%s" % self.date_validation
+
+
 
 class Validation_pro(models.Model):
     date_validation = models.DateTimeField(auto_now_add=True)
@@ -36,23 +76,18 @@ class Validation_pro(models.Model):
     pro = models.ForeignKey(Pro)
     administrator = models.ForeignKey(Administrator)
 
-class Pro(models.Model):
-    name = models.CharField(max_length=45)
-    adress = models.CharField(max_length=70)
-    siret = models.IntegerField()
+    def __unicode__(self):
+        return "%s" % self.date_validation
 
-    user = models.ForeignKey(User)
-
-class City(models.Model):
-    name = models.CharField(max_length=45)
-    cp = models.IntegerField()
-    gps_x = models.IntegerField()
-    gps_y = models.IntegerField()
 
 class Favorite(models.Model):
 
     user = models.ForeignKey(User)
     categorie = models.ForeignKey(Categorie)
+
+    def __unicode__(self):
+        return "%s" % self.categorie
+
 
 class Participation(models.Model):
     is_present = models.BooleanField(default=False)
@@ -60,5 +95,11 @@ class Participation(models.Model):
     user = models.ForeignKey(User)
     event = models.ForeignKey(Event)
 
-class Categorie(models.Model):
-    name = models.CharField(max_length=45)
+    def __unicode__(self):
+        return "%s" % self.is_present
+
+class LozApp(UserenaBaseProfile):
+    user = models.OneToOneField(User,
+                                unique=True,
+                                verbose_name=_('user'),
+                                related_name='my_profile')

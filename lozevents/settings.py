@@ -37,8 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    'django.contrib.sites',
+
     'lozapp',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'userena.backends.UserenaAuthenticationBackend',
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +62,17 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ANONYMOUS_USER_ID = -1
+
+AUTH_PROFILE_MODULE = 'lozapp.LozApp'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+USERENA_SIGNIN_REDIRECT_URL = '/profile/%(username)s/'
+LOGIN_URL = '/profile/signin/'
+LOGOUT_URL = '/profile/signout/'
+
 
 ROOT_URLCONF = 'lozevents.urls'
 
