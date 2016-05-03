@@ -1,17 +1,10 @@
 #!/usr/bin/env python
 
-from views import eventclick, events, homepage, log, logpart, logpro, post, userpart, userpro
+from views import event_display, event_list, event_create
 from django.conf.urls import url, include
 
-
 urlpatterns = [
-    url(r'^$', homepage),
-    url(r'^eventclick$', eventclick),
-    url(r'^events$', events),
-    url(r'^log$', log),
-    url(r'^logpro$', logpro),
-    url(r'^logpart$', logpart),
-    url(r'^post$', post),
-    url(r'^userpro$', userpro),
-    url(r'^userpart$', userpart),
+    url(r'^(?P<slug>[\w-]+)$', event_display, name="event-display"),
+    url(r'^list$', event_list),
+    url(r'^create$', event_create),
 ]

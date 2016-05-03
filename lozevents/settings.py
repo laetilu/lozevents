@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'guardian',
     'easy_thumbnails',
     'django.contrib.sites',
+    'django_extensions',
 
+    'lozprofile',
     'lozapp',
 ]
 
@@ -65,7 +67,7 @@ MIDDLEWARE_CLASSES = [
 
 ANONYMOUS_USER_ID = -1
 
-AUTH_PROFILE_MODULE = 'lozapp.LozApp'
+AUTH_PROFILE_MODULE = 'lozprofile.ProfilePart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

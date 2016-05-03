@@ -4,27 +4,11 @@ from django.shortcuts import render
 def homepage(request):
     return render(request, "homepage.html")
 
-def eventclick(request):
-    return render(request, "eventclick.html")
+def event_display(request):
+    return render(request, "eventdisplay.html")
 
-def events(request):
-    return render(request, "events.html")
+def event_list(request):
+    return render(request, "eventlist.html")
 
-def log(request):
-    return render(request, "log.html")
-
-def logpart(request):
-    return render(request, "logpart.html")
-
-def logpro(request):
-    return render(request, "logpro.html")
-
-def post(request):
-    return render(request, "post.html")
-
-def userpro(request):
-    return render(request, "userpro.html")
-
-def userpart(request):
-    return render(request, "userpart.html")
-# Create your views here.
+def event_create(request):
+    return render(request, "eventcreate.html")
