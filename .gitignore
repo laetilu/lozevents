@@ -1,7 +1,6 @@
 *.pyc
 .sass-cache
 *.db
-bower-components
-*.css
+/static/bower_components
 media
 
