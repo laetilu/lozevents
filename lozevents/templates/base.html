@@ -19,9 +19,23 @@
     {% include "footer.html" %}
 
     <script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/static/bower_components/what-input/polyfills/what-input.min.js"></script>
+    <script src="/static/bower_components/what-input/what-input.min.js"></script>
     <script src="/static/bower_components/foundation-sites/dist/foundation.min.js"></script>
-    <script src="/static/js/app.js"></script>
+    <script src="/static/bower_components/foundation-sites/dist/plugins/foundation.reveal.js"></script>
+    <script src="/static/bower_components/foundation-sites/dist/plugins/foundation.core.js"></script>
+    <script src="/static/bower_components/foundation-sites/dist/plugins/foundation.util.keyboard.js"></script>
+    <script src="/static/bower_components/foundation-sites/dist/plugins/foundation.util.box.js"></script>
+    <script src="/static/bower_components/foundation-sites/dist/plugins/foundation.util.triggers.js"></script>
+    <script src="/static/bower_components/foundation-sites/dist/plugins/foundation.util.mediaQuery.js"></script>
+    <script src="/static/bower_components/foundation-sites/dist/plugins/foundation.util.motion.js"></script>
 
+    <script>
+       $(document).foundation();
+       $(document).ready(function(){
+
+           $('#exampleModal1').foundation();
+        
+       });
+    </script>
   </body>
 </html>
