@@ -2,8 +2,70 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>post</h1>
+<!-- breadcrumb -->
 
+<div class="row columns">
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li><a href="#">Home</a></li>
+    <li class="disabled">Post</li>
+  </ul>
+</nav>
+</div>
 
+<!-- texte d'intro -->
+
+<div class="row medium-8 large-7 columns">
+<div class="">
+<h3>Comment poster</h3>
+<img class="thumbnail" src="http://placehold.it/850x350">
+<p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+</div>
+</div>
+
+<!-- formulaire de post -->
+
+<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+
+    <form>
+      <div class="row column log-in-form">
+        <h4 class="text-center">Poster votre evenement</h4>
+        <label>nom
+          <input type="text" placeholder="name">
+        </label>
+        <label>date
+          <input type="date" placeholder="">
+        </label>
+        <label>Prix
+          <input type="number" placeholder="">
+        </label>
+        <label>Categories
+            <select>
+                <option value="husker">Husker</option>
+                <option value="starbuck">Starbuck</option>
+                <option value="hotdog">Hot Dog</option>
+                <option value="apollo">Apollo</option>
+            </select>
+        </label>
+        <label for="exampleFileUpload" class="button">Upload File</label>
+        <input type="file" id="exampleFileUpload" class="show-for-sr">
+        <!-- <button class="button expanded" data-open="exampleModal1">Poster</button> -->
+        <p><a type="submit" class="button expanded" data-open="exampleModal1">Poster</a></p>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<!-- fenetre modale -->
+<div class="reveal" id="exampleModal1" data-reveal>
+  <h1>Awesome. I Have It.</h1>
+  <p class="lead">Your couch. It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
 {% endblock %}

@@ -1,8 +1,8 @@
 @charset 'utf-8';
 
-@import 'settings';
+@import 'settings/settings';
 @import 'foundation';
-@import 'motion-ui';
+//@import 'motion-ui';
 
 @include foundation-global-styles;
 @include foundation-grid;
@@ -39,8 +39,10 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 
-@include motion-ui-transitions;
-@include motion-ui-animations;
+//@include motion-ui-transitions;
+//@include motion-ui-animations;
+
+/* Header */
 
 
 
@@ -49,10 +51,36 @@
 }
 .header {
   padding: 10rem 0;
-  background: url('http://placehold.it/2500x800') center center no-repeat;
+  background: url('/static/img/foule.jpeg') center center no-repeat;
   background-size: cover;
 }
 
 .text-center {
   text-align: center;
+}
+
+
+
+
+/* Post */
+
+
+// Default medium-gray color
+$medium-gray: #cacaca;
+// Default global padding
+$global-padding: 2rem;
+// Global value used for all elements that have a border radius.
+$global-radius: 3px;
+
+// Setting the form border color
+$form-border-color: $medium-gray;
+// Setting the form padding
+$form-padding: $global-padding;
+// Setting the form border radius
+$form-radius: $global-radius;
+
+.log-in-form {
+  border: 1px solid $form-border-color;
+  padding: $form-padding;
+  border-radius: $form-radius;
 }
