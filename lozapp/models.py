@@ -11,7 +11,7 @@ class Address(models.Model): #REGARDER GEODJANGO
     street = models.CharField(max_length=45)
     zipcode = models.CharField(max_length=5)
     city =  models.CharField(max_length=100)
-    poly = models.PointField()
+    poly = models.PointField(null=True)
     objects = models.GeoManager()
 
     def __unicode__(self):
