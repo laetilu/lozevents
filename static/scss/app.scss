@@ -4,6 +4,7 @@
 @import 'foundation';
 //@import 'motion-ui';
 
+
 @include foundation-global-styles;
 @include foundation-grid;
 @include foundation-typography;
@@ -44,15 +45,22 @@
 
 /* Header */
 
-
+.top-bar-left{
+	margin-left: 8rem;
+	margin-top: 1rem;
+}
+.top-bar-right{
+	margin-right: 8rem;
+	margin-top: 1rem
+}
 
 .rowHeader{
-	max-width: 100%;
+ max-width: 100%;
 }
 .header {
-  padding: 10rem 0;
-  background: url('/static/img/foule.jpeg') center center no-repeat;
+  background: url('/static/img/concertun.jpg') center center no-repeat;
   background-size: cover;
+	height: 40rem;
 }
 
 .text-center {
@@ -60,6 +68,26 @@
 }
 
 
+.rechercheH{
+	margin-top: 14rem;
+}
+.callout.secondary{
+	background-color: rgba(244, 244, 244, 0.34);
+}
+
+
+
+/* Homepage */
+
+.categorieGalerie{
+	background-color: #0c0234;
+	background-size: cover;
+	height: 40rem;
+}
+
+.buttonHollow{
+	padding: 5rem;
+}
 
 
 /* Post */
