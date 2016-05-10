@@ -2,6 +2,7 @@ Django==1.9.5
 MySQL-python==1.2.5
 Pillow==3.2.0
 argparse==1.2.1
+django-autoslug==1.9.3
 django-extensions==1.6.3
 django-guardian==1.4.1
 django-userena==2.0.1

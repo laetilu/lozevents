@@ -12,4 +12,4 @@ urlpatterns = [
     url(r'^$', homepage, name="home-page"),
 
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -27,7 +27,7 @@
 <div class="row">
   <div class="medium-6 medium-centered large-4 large-centered columns">
 
-    <form>
+    <!-- <form>
       <div class="row column log-in-form">
         <h4 class="text-center">Poster votre evenement</h4>
         <label>nom
@@ -49,10 +49,39 @@
         </label>
         <label for="exampleFileUpload" class="button">Upload File</label>
         <input type="file" id="exampleFileUpload" class="show-for-sr">
-        <!-- <button class="button expanded" data-open="exampleModal1">Poster</button> -->
+        <button class="button expanded" data-open="exampleModal1">Poster</button>
         <p><a type="submit" class="button expanded" data-open="exampleModal1">Poster</a></p>
       </div>
+    </form> -->
+
+
+
+
+
+
+
+
+
+    <form role="form" name="form" action="/event/create" method="post" enctype="multipart/form-data" >
+     {% csrf_token %}
+       <!-- {{form.title.label_tag}}
+       {{form.title}}
+       {{form.body.label_tag}}
+       {{form.body}}
+       {{form.author.as_hidden}}
+       {{form.errors}} -->
+       {{form}}
+
+       <button type="submit" class="btn btn-primary"> Valider</button>
+       <button type="button" class="btn btn-inverse"> Annuler</button>
     </form>
+
+
+
+
+
+
+
 
   </div>
 </div>

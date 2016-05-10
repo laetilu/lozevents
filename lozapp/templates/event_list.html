@@ -16,38 +16,25 @@
 
     <div class="row medium-8 large-7 columns">
         <div class="row small-up-2 medium-up-3 large-up-4">
-            <div class="column">
+            <!-- <div class="column">
                 <img class="thumbnail" src="http://placehold.it/550x550">
                 <h5>My Site</h5>
-            </div>
-            <div class="column">
-                <img class="thumbnail" src="http://placehold.it/550x550">
-                <h5>My Site</h5>
-            </div>
-            <div class="column">
-                <img class="thumbnail" src="http://placehold.it/550x550">
-                <h5>My Site</h5>
-            </div>
-            <div class="column">
-                <img class="thumbnail" src="http://placehold.it/550x550">
-                <h5>My Site</h5>
-            </div>
-            <div class="column">
-                <img class="thumbnail" src="http://placehold.it/550x550">
-                <h5>My Site</h5>
-            </div>
-            <div class="column">
-                <img class="thumbnail" src="http://placehold.it/550x550">
-                <h5>My Site</h5>
-            </div>
-            <div class="column">
-                <img class="thumbnail" src="http://placehold.it/550x550">
-                <h5>My Site</h5>
-            </div>
-            <div class="column">
-                <img class="thumbnail" src="http://placehold.it/550x550">
-                <h5>My Site</h5>
-            </div>
+            </div> -->
+            <ul>
+                {% for event in events %}
+                <li>
+                    <h2><a href="/event/{{event.slug}}">{{event.title}}
+                        </a></h2>
+                        <img src="/media/{{event.photo}}" alt="image" />
+
+                </li>
+                {% endfor %}
+            </ul>
+
+
+
+
+
         </div>
     </div>
 <br>
