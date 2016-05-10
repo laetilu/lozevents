@@ -14,6 +14,11 @@
 </header> -->
 
 
+      <!-- HEADER -->
+
+
+
+<div class="header">
 <header>
 
     <!--   logo et login -->
@@ -25,13 +30,13 @@
 
     <div class="top-bar-right">
         <ul class="menu">
-            <li><a href="#">My Account</a></li>
-            <li><a href="{% url "login" %}" class="button">Login</a></li>
+            <li><a href="{% url "login" %}" class="button large hollow">CONNEXION</a></li>
         </ul>
     </div>
 
+
     <!-- image titre bouton-->
-    <div class="row rowHeader header">
+    <div class="row rowHeader">
         <div class="large-12 columns">
             <div class="row column text-center">
                 <h1>Loz'Events</h1>
@@ -44,52 +49,52 @@
         </div>
     </div>
 
-    <!-- barre de recherche -->
+  </header>
+
+
+  <!-- barre de recherche -->
 
     <div class="row">
-        <div class="large-12 columns">
-            <div class="callout secondary">
+        <div class="large-12 columns rechercheH">
+            <div class="callout secondary calloutH">
                 <form>
                     <div class="row">
                         <div class="large-3 columns">
-                            <label>Categories
+                            <label>
                                 <select>
-                                    <option value="husker">Husker</option>
-                                    <option value="starbuck">Starbuck</option>
-                                    <option value="hotdog">Hot Dog</option>
-                                    <option value="apollo">Apollo</option>
+                                    <option value="Sport">Sports</option>
+                                    <option value="Arts">Arts</option>
+                                    <option value="Concerts">Concerts</option>
+                                    <option value="Fetes">Fetes</option>
+                                    <option value="Cours et Ateliers">Cours et Ateliers</option>
                                 </select>
                             </label>
                         </div>
 
                         <div class="large-4 columns">
-                            <label>Find Your Dream Planet
-                                <input type="text" placeholder="Search destinations">
+                            <label>
+                                <input type="text" placeholder="Dans quel coin?">
                             </label>
                         </div>
 
                         <div class="large-3 columns">
-                            <label>Date
+                            <label>
                                 <select>
-                                    <option value="husker">Aujourd'hui</option>
-                                    <option value="starbuck">demain</option>
-                                    <option value="hotdog">ce we</option>
-                                    <option value="apollo">le mois prochain</option>
+                                    <option value="Aujourd'hui">Aujourd'hui</option>
+                                    <option value="Demain">Demain</option>
+                                    <option value="Ce We">Ce We</option>
+                                    <option value="Le Mois Prochain">Le Mois Prochain</option>
                                 </select>
                             </label>
                         </div>
 
                         <div class="large-2 columns">
-                            <button type="submit" class="button buttonH ">Search Now!</button>
+                            <button type="submit" class="button">Go!</button>
                         </div>
-
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <br>
-    <br>
-
-  </header>
+  </div>
