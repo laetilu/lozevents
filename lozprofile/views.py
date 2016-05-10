@@ -13,3 +13,6 @@ def signup_pro(request):
 
 def signup_part(request):
     return render(request, "signup_part.html")
+
+def login(request):
+    return render(request, "login.html")
