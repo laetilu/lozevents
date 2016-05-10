@@ -15,7 +15,7 @@ class Address(models.Model): #REGARDER GEODJANGO
     objects = models.GeoManager()
 
     def __unicode__(self):
-        return "%s" % self.name
+        return "%s %s" % (self.city, self.street)
 
 class Categorie(models.Model):
     name = models.CharField(max_length=45)

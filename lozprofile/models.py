@@ -18,6 +18,6 @@ class ProfilePart(UserenaBaseProfile):
 class ProfilePro(ProfilePart):
     company_name = models.CharField(max_length=200)
     siret = models.IntegerField()
-
+    number = models.IntegerField()
     def __unicode__(self):
         return "%s" % self.company_name
