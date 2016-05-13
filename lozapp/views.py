@@ -11,8 +11,6 @@ def homepage(request):
 def event_display(request, slug):
     return render(request, "event_display.html")
 
-# def event_list(request):
-#     return render(request, "event_list.html")
 
 
 
@@ -21,18 +19,6 @@ class EventListView(ListView):
    template_name = "event_list.html"
    context_object_name = "events"
    queryset = Event.objects.all().order_by('date_creation') #remplace la fonction get_queryset
-
-   # def get_context_data(self, **kwargs):
-   #     context = super(PostListView, self).get_context_data(**kwargs)
-   #     context["search_form"] = SearchForm()
-   #     return context
-   #
-   # def get_queryset(self):
-   #     search_form = SearchForm(self.request.GET)
-   #     if search_form.is_valid():
-   #         return Post.objects.filter(title__icontains=search_form.cleaned_data["search"])        champs de recherche valide dans la liste renvoi reponse
-   #     return Post.objects.all()
-
 
 
 
@@ -44,3 +30,14 @@ class EventCreateView(CreateView):
 
     def get_initial(self):
         return {"pro" : self.request.user}
+
+
+class EventDisplayView(DetailView):
+    model = Event
+    template_name = "event_display.html"
+
+    def get_context_data(self, **kwargs):
+       context = super(EventDisplayView, self).get_context_data(**kwargs)
+       context["event"] = self.get_object()
+    #    context["users"] = self.get_object().profilpart_set.all()
+       return context

@@ -12,17 +12,33 @@
 </div>
 
 <!-- info evenements -->
+
 <div class="row">
     <div class="medium-6 columns medium-push-6">
-        <img class="thumbnail" src="http://placehold.it/750x350">
+        <img class="thumbnail" src="/media/{{event.photo}}">
     </div>
     <div class="medium-6 columns medium-pull-6">
-        <h2>Our Agency, our selves.</h2>
-        <p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.
-            Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor.</p>
+        <h2>Titre : {{event.title}}</h2>
+        <p>Description : {{event.desc}}</p>
+        <p>Organisateur, pro : {{event.pro}}</p>
+        <p>Date de debut : {{event.begin_date}}</p>
+        <p>Date de fin : {{event.end_date}}</p>
+        <p>Categorie : {{event.categorie}}</p>
+        <p>Adresse : {{event.addr}}</p>
+        <p>Participants :
+
+
+            <!-- {% for user in users %} -->
+            {{users}}
+            <!-- {% endfor %} -->
+
+
+        </p>
+
     </div>
 </div>
 <br>
+
 <!-- map -->
 
 <div class="row medium-8 large-7 columns">

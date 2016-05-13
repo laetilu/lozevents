@@ -23,10 +23,12 @@
             <ul>
                 {% for event in events %}
                 <li>
-                    <h2><a href="/event/{{event.slug}}">{{event.title}}
-                        </a></h2>
-                        <img src="/media/{{event.photo}}" alt="image" />
-
+                    <h2>
+                        <a href="{{event.slug}}">
+                            {{event.title}}
+                        </a>
+                    </h2>
+                    <img src="/media/{{event.photo}}" alt="image" />
                 </li>
                 {% endfor %}
             </ul>
