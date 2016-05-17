@@ -72,7 +72,7 @@ AUTH_PROFILE_MODULE = 'lozprofile.ProfilePart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-USERENA_SIGNIN_REDIRECT_URL = '/profile/%(username)s/'
+USERENA_SIGNIN_REDIRECT_URL = '/event/list'
 LOGIN_URL = '/profile/signin/'
 LOGOUT_URL = '/profile/signout/'
 

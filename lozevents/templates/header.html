@@ -30,7 +30,11 @@
 
     <div class="top-bar-right">
         <ul class="menu">
-            <li><a href="{% url "login" %}" class="button large hollow">CONNEXION</a></li>
+            {% if user.username %}
+            <li><a href="{% url "signout" %}" class="button large hollow">SE DECONNECTER</a></li>
+            {% else %}
+            <li><a href="{% url "signin" %}" class="button large hollow">CONNEXION</a></li>
+            {% endif %}
         </ul>
     </div>
 

@@ -1,0 +1,71 @@
+{% extends 'userena/base_userena.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Signin" %}{% endblock %}
+
+{% block content %}
+<!-- <form action="/profile/signin" method="post">
+  {% csrf_token %}
+  {{form}}
+  <button type="submit" class="btn btn-primary"> Valider</button>
+</form> -->
+
+
+<!-- breadcrumb -->
+
+<div class="row columns">
+    <nav aria-label="You are here:" role="navigation">
+        <ul class="breadcrumbs">
+            <li><a href="{% url "home-page" %}">Home</a></li>
+            <li class="disabled">log</li>
+        </ul>
+    </nav>
+</div>
+
+      <!-- fenetre log in -->
+
+<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+
+    <form class="log-in-form" action="/profile/signin" method="post">
+    {% csrf_token %}
+      <div class="row column ">
+        <h4 class="text-center">Log in with you email account</h4>
+        {% for field in form %}
+        {{ field.errors }}
+
+          <label for="id_{{ field.name }}">{{ field.label }}{{ field }}</label>
+          {% endfor %}
+
+        </label>
+        <p><button type="submit" class="button expanded">Log In</button></p>
+        <p class="text-center"> Or </p>
+        <p><button type="submit" class="button expanded">Log with Facebook</button></p>
+        <p class="text-center"><a href="#">Forgot your password?</a></p>
+        <p class="text-center"><a href="#">Create a account?</a></p>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+    <!-- fenetre inscription -->
+
+
+<!-- <div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+
+    <form class="log-in-form">
+      <div class="row column ">
+        <h4 class="text-center">Creez votre comptre</h4>
+        <p><a href="" type="submit" class="button expanded">Compte particulier</a></p>
+        <p class="text-center"> Or </p>
+        <p><a href="" type="submit" class="button expanded">Comptre pro</a></p>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+{% endblock %}
