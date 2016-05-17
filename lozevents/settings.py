@@ -72,9 +72,12 @@ AUTH_PROFILE_MODULE = 'lozprofile.ProfilePart'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-USERENA_SIGNIN_REDIRECT_URL = '/event/list'
+USERENA_SIGNIN_REDIRECT_URL = '/'
 LOGIN_URL = '/profile/signin/'
 LOGOUT_URL = '/profile/signout/'
+
+USERENA_SIGNIN_AFTER_SIGNUP = True
+USERENA_ACTIVATION_REQUIRED = False
 
 
 ROOT_URLCONF = 'lozevents.urls'

@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 
 from django.conf.urls import url, include
+from views import *
+from forms import SignupFormExtra
 
-from views import signin
 
 urlpatterns = [
 
     url(r'^signin$', 'userena.views.signin', {'template_name': 'signin.html'}, name="signin"),
     url(r'^signout$', 'userena.views.signout', name="signout"),
-
+    url(r'^signup$', 'userena.views.signup', {'template_name': 'signup.html', 'signup_form': SignupFormExtra}, name="signup", ),
 
     # url(r'^login$', login, name="login"),
     # url(r'^pro/signup$', signup_pro, name="sign-up-pro"),

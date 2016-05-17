@@ -30,7 +30,10 @@
 
     <div class="top-bar-right">
         <ul class="menu">
-            {% if user.username %}
+            {% if user.is_authenticated %}
+            <li><a>
+                {{ user }}
+            </a></li>
             <li><a href="{% url "signout" %}" class="button large hollow">SE DECONNECTER</a></li>
             {% else %}
             <li><a href="{% url "signin" %}" class="button large hollow">CONNEXION</a></li>

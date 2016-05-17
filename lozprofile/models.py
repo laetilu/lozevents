@@ -12,7 +12,7 @@ class ProfilePart(UserenaBaseProfile):
                                 unique=True,
                                 verbose_name=_('user'),
                                 related_name='profile_part')
-    address = models.ForeignKey(Address)
+    address = models.ForeignKey(Address, null=True)
     favorite_categories = models.ManyToManyField(Categorie)
 
 class ProfilePro(ProfilePart):
