@@ -20,7 +20,6 @@ class Address(models.Model): #REGARDER GEODJANGO
     city =  models.CharField(max_length=100)
     street = models.CharField(max_length=45)
     poly = models.PointField(null=True, blank=True)
-    # objects = models.GeoManager()
 
     def __unicode__(self):
         return "%s %s" % (self.city, self.street)
