@@ -39,5 +39,4 @@ class EventDisplayView(DetailView):
     def get_context_data(self, **kwargs):
        context = super(EventDisplayView, self).get_context_data(**kwargs)
        context["event"] = self.get_object()
-    #    context["users"] = self.get_object().profilpart_set.all()
        return context

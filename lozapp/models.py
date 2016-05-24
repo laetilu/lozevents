@@ -6,16 +6,21 @@ from autoslug import AutoSlugField
 from django.contrib.auth.models import User
 from django.contrib.gis.db import models
 
-# Create your models here.
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+from geopy.geocoders import Nominatim
+from django.contrib.gis.geos import fromstr
+
+
 
 
 
 class Address(models.Model): #REGARDER GEODJANGO
-    street = models.CharField(max_length=45)
     zipcode = models.CharField(max_length=5)
     city =  models.CharField(max_length=100)
-    poly = models.PointField(null=True)
-    objects = models.GeoManager()
+    street = models.CharField(max_length=45)
+    poly = models.PointField(null=True, blank=True)
+    # objects = models.GeoManager()
 
     def __unicode__(self):
         return "%s %s" % (self.city, self.street)
@@ -51,3 +56,14 @@ class Event(models.Model):
 
     def __unicode__(self):
         return "%s" % self.title
+
+
+
+@receiver(pre_save, sender=Address)
+def address_geocoding(sender, instance,**kwargs):
+    print("Request finished!", sender, instance)
+
+    geolocator = Nominatim()
+    location = geolocator.geocode("%s %s" % (instance.city, instance.street))
+    # print((location.latitude, location.longitude))
+    instance.poly = fromstr('POINT(%s %s)' % (location.longitude, location.latitude))

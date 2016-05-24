@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'django.contrib.sites',
     'django_extensions',
+    'leaflet',
 
     'lozprofile',
     'lozapp',
@@ -159,3 +160,10 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (44.516190, 3.5),
+    'DEFAULT_ZOOM': 11,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 18,
+}

@@ -1,6 +1,8 @@
  {% extends 'base.html' %}
 
 <!-- breadcrumb -->
+{% load leaflet_tags %}
+
 {% block content %}
 <div class="row columns">
     <nav aria-label="You are here:" role="navigation">
@@ -40,10 +42,25 @@
 <br>
 
 <!-- map -->
+<script type="text/javascript">
+
+
+function map_init_basic (map, options) {
+
+    var marker = L.marker([{{event.addr.poly.y|stringformat:".5f"}}, {{event.addr.poly.x|stringformat:".5f"}}]).addTo(map).bindPopup('{{event.title}}');
+    map.setView({lat:{{event.addr.poly.y|stringformat:".5f"}}, lng:{{event.addr.poly.x|stringformat:".5f"}}}, 12) 
+   // map.setView(marker.latLng);
+
+}
+</script>
 
 <div class="row medium-8 large-7 columns">
     <div class="">
-        <img class="thumbnail" src="http://placehold.it/850x350">
+
+        {% leaflet_map "idmap" callback="window.map_init_basic" %}
+
+
+
     </div>
 </div>
 
