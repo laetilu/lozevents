@@ -5,8 +5,10 @@ argparse==1.2.1
 django-autoslug==1.9.3
 django-extensions==1.6.3
 django-guardian==1.4.1
+django-leaflet==0.18.1
 django-userena==2.0.1
 easy-thumbnails==2.3
+geopy==1.11.0
 html2text==2014.12.29
 six==1.10.0
 wsgiref==0.1.2
