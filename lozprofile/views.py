@@ -10,7 +10,7 @@ def sign_up(request):
         username = request.user.username
         return HttpResponseRedirect('/')
     else:
-        return signup(request,signup_form=SignupFormExtra)
+        return signup(request,signup_form=SignupFormPart)
 # def profile_part_display(request, username):
 #     return render(request, "profile_part_display.html")
 #

@@ -7,18 +7,27 @@ from lozapp.models import Categorie, Address
 from userena.models import UserenaBaseProfile
 from django.utils.translation import ugettext as _
 
-class ProfilePart(UserenaBaseProfile):
+
+class LozProfile(UserenaBaseProfile):
     user = models.OneToOneField(User,
-                                unique=True,
-                                verbose_name=_('user'),
-                                related_name='profile_part')
+                            unique=True,
+                            verbose_name=_('user'),
+                            related_name='lozprofile')
     address = models.ForeignKey(Address, null=True)
     favorite_categories = models.ManyToManyField(Categorie)
 
+class ProfilePart(models.Model):
+    profile = models.OneToOneField(LozProfile,
+                                unique=True,
+                                related_name='particuler')
+class ProfilePro(models.Model):
+    profile = models.OneToOneField(LozProfile,
+                                unique=True,
+                                related_name='pro')
 
-class ProfilePro(ProfilePart):
     company_name = models.CharField(max_length=200)
     siret = models.IntegerField()
     number = models.IntegerField()
+
     def __unicode__(self):
         return "%s" % self.company_name

@@ -42,7 +42,6 @@
         <p class="text-center"> Or </p>
         <p><button type="submit" class="button expanded">Log with Facebook</button></p>
         <p class="text-center"><a href="#">Forgot your password?</a></p>
-        <p class="text-center"><a href="{% url "lozsignup" %}">Create a account?</a></p>
 
       </div>
     </form>
@@ -60,9 +59,9 @@
     <form class="log-in-form">
       <div class="row column ">
         <h4 class="text-center">Creez votre comptre</h4>
-        <p><a href="" type="submit" class="button expanded">Compte particulier</a></p>
+        <p><a href="{% url "lozsignup-part" %}" type="submit" class="button expanded">Compte particulier</a></p>
         <p class="text-center"> Or </p>
-        <p><a href="" type="submit" class="button expanded">Comptre pro</a></p>
+        <p><a href="{% url "lozsignup-pro" %}" type="submit" class="button expanded">Comptre pro</a></p>
       </div>
     </form>
   </div>

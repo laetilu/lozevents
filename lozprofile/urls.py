@@ -2,7 +2,7 @@
 
 from django.conf.urls import url, include
 from views import *
-from forms import SignupFormExtra
+from forms import SignupFormPart, SignupFormPro
 
 
 urlpatterns = [
@@ -10,7 +10,8 @@ urlpatterns = [
     # url(r'^accounts/signup/$', 'accounts.views.sign_up'),
     url(r'^signin$', 'userena.views.signin', {'template_name': 'signin.html'}, name="lozsignin"),
     url(r'^signout$', 'userena.views.signout', name="lozsignout"),
-    url(r'^signup$', 'userena.views.signup', {'template_name': 'signup.html', 'success_url': '/', 'signup_form': SignupFormExtra}, name="lozsignup"),
+    url(r'^signup/part$', 'userena.views.signup', {'template_name': 'signup_part.html', 'success_url': '/', 'signup_form': SignupFormPart}, name="lozsignup-part"),
+    url(r'^signup/pro$', 'userena.views.signup', {'template_name': 'signup_pro.html', 'success_url': '/', 'signup_form': SignupFormPro}, name="lozsignup-pro"),
 
     # url(r'^login$', login, name="login"),
     # url(r'^pro/signup$', signup_pro, name="sign-up-pro"),

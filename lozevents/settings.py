@@ -69,11 +69,13 @@ MIDDLEWARE_CLASSES = [
 
 ANONYMOUS_USER_ID = -1
 
-AUTH_PROFILE_MODULE = 'lozprofile.ProfilePart'
+AUTH_PROFILE_MODULE = 'lozprofile.LozProfile'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 USERENA_SIGNIN_REDIRECT_URL = '/'
+USERENA_REDIRECT_ON_SIGNOUT = '/'
+
 LOGIN_URL = '/profile/signin/'
 LOGOUT_URL = '/profile/signout/'
 
