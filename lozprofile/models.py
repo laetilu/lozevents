@@ -15,6 +15,7 @@ class ProfilePart(UserenaBaseProfile):
     address = models.ForeignKey(Address, null=True)
     favorite_categories = models.ManyToManyField(Categorie)
 
+
 class ProfilePro(ProfilePart):
     company_name = models.CharField(max_length=200)
     siret = models.IntegerField()
