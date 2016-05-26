@@ -7,6 +7,7 @@ from forms import SignupFormPart, SignupFormPro
 
 urlpatterns = [
     url(r'^', include('userena.urls')),
+    # url(r'^ (?P<pk>[\w-]+)$',ProfileDisplayView.as_view(), name='profile-display'),
     # url(r'^accounts/signup/$', 'accounts.views.sign_up'),
     url(r'^signin$', 'userena.views.signin', {'template_name': 'signin.html'}, name="lozsignin"),
     url(r'^signout$', 'userena.views.signout', name="lozsignout"),

@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from userena.views import signup, signin
+from models import LozProfile
+
+from django.views.generic import DetailView
 
 
 def sign_up(request):
@@ -11,6 +14,16 @@ def sign_up(request):
         return HttpResponseRedirect('/')
     else:
         return signup(request,signup_form=SignupFormPart)
+
+
+class ProfileDisplayView(DetailView):
+   model = LozProfile
+   template_name = "profile_display.html"
+
+   def get_context_data(self, **kwargs):
+      context = super(ProfileDisplayView, self).get_context_data(**kwargs)
+      context["profile"] = self.get_object()
+      return context
 # def profile_part_display(request, username):
 #     return render(request, "profile_part_display.html")
 #
