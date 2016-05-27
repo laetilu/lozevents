@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load leaflet_tags %}
+
 {% block content %}
 
     <!-- breadcrumb -->
@@ -20,6 +22,31 @@
                 <img class="thumbnail" src="http://placehold.it/550x550">
                 <h5>My Site</h5>
             </div> -->
+
+            <script type="text/javascript">
+
+
+            function map_init_basic (map, options) {
+
+                {% for event in events %}
+
+                L.marker([{{event.addr.poly.y|stringformat:".3f"}}, {{event.addr.poly.x|stringformat:".3f"}}]).addTo(map).bindPopup('{{event.title}}');
+
+                {% endfor %}
+            }
+            </script>
+
+            <div>
+
+                {% leaflet_map "idmap" callback="window.map_init_basic" %}
+
+
+
+            </div>
+
+
+
+
             <ul>
                 {% for event in events %}
                 <li>
