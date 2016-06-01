@@ -1,134 +1,255 @@
  {% extends 'base.html' %} {% block content %}
 
-<!-- espace facebook slider -->
-<div class="row">
-    <div class="large-12 columns buttonHollow">
-        <div class="text-center">
-            <a href="#" class="button large hollow">Dernières Actus</a>
-        </div>
-    </div>
-</div>
 
 <div class="row">
-    <div class="large-12 columns">
+  <div class="large-12 columns">
 
-        <article>
+<!------------------------------texte accueil -->
+    <div class="row rowHome">
+      <div class="large-12 columns texteAccueil">
+        <p>Bienvenue sur le site de Loz'Events.
+          Retrouvez ici tous les petits et grands évenements de la Lozère à Mende et partout en Lozère.
+          Tous les bons plans pour sortir sont sur Loz'Events: soirée danse, match, fête de village, cours et atelier...
+          Inscrivez vous et recevez les infos en direct sur votre smart-phone ou votre boite mail.
+          Vous pouvez aussi postez vos annonces de soirée et promouvoir votre structure sur notre site web.<br> Bougez avec Loz'Events!</p>
+      </div>
+  </div>
 
+<!-------------------------------espace slider -->
 
-                <div class="large-7 columns">
-
-                    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit="2hockt-orbit">
-                        <ul class="orbit-container" tabindex="0" style="height: 534px;">
-                            <button class="orbit-previous" aria-label="previous" tabindex="0"><span class="show-for-sr">Previous Slide</span>◀</button>
-                            <button class="orbit-next" aria-label="next" tabindex="0"><span class="show-for-sr">Next Slide</span>▶</button>
-                            <li class="orbit-slide is-active" data-slide="0" style="max-height: 534px;">
-                                <img src="http://placehold.it/1000x534&amp;text=1st">
-                            </li>
-                            <li class="orbit-slide" data-slide="1" style="position: relative; display: none; max-height: 534px;">
-                                <img src="http://placehold.it/1000x534&amp;text=2nd">
-                            </li>
-                            <li class="orbit-slide" data-slide="2" style="position: relative; display: none; max-height: 534px;">
-                                <img src="http://placehold.it/1000x534&amp;text=3nd">
-                            </li>
-                            <li class="orbit-slide" data-slide="3" style="position: relative; display: none; max-height: 534px;">
-                                <img src="http://placehold.it/1000x534&amp;text=4nd">
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="large-5 columns">
-                        <!-- <div class="row">
-                            <div class="large-6 columns">
-                                <p><img src="http://placehold.it/300x300" alt="image for article"></p>
-                            </div>
-                            <div class="large-6 columns">
-                                <h5><a href="#">'Derniers posts sur Facebook</a></h5>
-                                <p>
-                                    <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                                    <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                                    <span><i class="fi-comments"> 6 comments</i></span>
-                                </p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae.</p>
-                            </div>
-                        </div> -->
-                        <div id="fb-root"></div>
-                            <script>(function(d, s, id) {
-                              var js, fjs = d.getElementsByTagName(s)[0];
-                              if (d.getElementById(id)) return;
-                              js = d.createElement(s); js.id = id;
-                              js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&version=v2.6";
-                              fjs.parentNode.insertBefore(js, fjs);
-                            }(document, 'script', 'facebook-jssdk'));</script>
-
-
-                        <div class="fb-page" data-href="https://www.facebook.com/Loz&#xe8;re-Animations-1722455281324360/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
-
-
-
-                        <!-- <div class="row">
-                            <div class="large-6 columns">
-                                <p><img src="http://placehold.it/300x300" alt="image for article"></p>
-                            </div>
-                            <div class="large-6 columns">
-                                <h5><a href="#">'Derniers posts sur Facebook</a></h5>
-                                <p>
-                                    <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                                    <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                                    <span><i class="fi-comments"> 6 comments</i></span>
-                                </p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae.</p>
-                            </div>
-                        </div> -->
-                    </div>
-            </div>
-        </article>
-    </div>
-</div>
-
-
-
-
-<!-- galerie categorie -->
-
-<div class="categorieGalerie">
 
     <div class="row">
-        <div class="large-12 columns buttonHollow">
+        <div class="large-12 columns">
             <div class="text-center">
-                <a href="{% url "event-list" %}" class="button large hollow">CATEGORIES</a>
+                <h3>Dernières Actus</h3>
             </div>
         </div>
     </div>
 
+    <div class="row rowHome">
+    <div class="large-8 columns">
+        <div class="responsive">
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event2.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/1551325265169414/">26JUN <br>Running du Lac de Charpal<br> dim8:30 <br> lac de Charpal 48170 Laubert</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="row small-up-2 medium-up-3 large-up-5">
-        <div class="column">
-            <img class="thumbnail" src="/static/img/concertunthumbnail.jpg">
-            <a href="#" class="button expanded">CONCERTS</a>
+        <div class="responsive">
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event2.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/1551325265169414/">26JUN <br>Running du Lac de Charpal <br>dim8:30 <br> lac de Charpal 48170 Laubert</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                    <div class="image-overlay-content">
+                        <h3>Sport</h3>
+                        <a href="https://www.facebook.com/events/270814299937106/">25JUN <br> Mende part en vadrouille</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="column">
-            <img class="thumbnail" src="/static/img/artthumbnail.jpg">
-            <a href="#" class="button expanded">ARTS</a>
-        </div>
-        <div class="column">
-            <img class="thumbnail" src="/static/img/coursthumbnail.jpg">
-            <a href="#" class="button expanded">COURS & ATELIERS</a>
-        </div>
-        <div class="column">
-            <img class="thumbnail" src="/static/img/sportdeuxthumbnail.jpg">
-            <a href="#" class="button expanded">SPORTS</a>
-        </div>
-        <div class="column">
-            <img class="thumbnail" src="/static/img/feteunthumbnail.jpg">
-            <a href="#" class="button expanded">FETES</a>
-        </div>
+      </div>
+
+<!-------------------------------espace facebook -->
+
+      <div class="large-4 columns">
+          <!-- <div class="row">
+              <div class="large-6 columns">
+                  <p><img src="http://placehold.it/300x300" alt="image for article"></p>
+              </div>
+              <div class="large-6 columns">
+                  <h5><a href="#">'Derniers posts sur Facebook</a></h5>
+                  <p>
+                      <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                      <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                      <span><i class="fi-comments"> 6 comments</i></span>
+                  </p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae.</p>
+              </div>
+          </div> -->
+          <div id="fb-root"></div>
+              <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/fr_CA/sdk.js#xfbml=1&version=v2.6";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+
+
+          <div class="fb-page" data-href="https://www.facebook.com/Loz&#xe8;re-Animations-1722455281324360/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"></div>
+
+
+
+          <!-- <div class="row">
+              <div class="large-6 columns">
+                  <p><img src="http://placehold.it/300x300" alt="image for article"></p>
+              </div>
+              <div class="large-6 columns">
+                  <h5><a href="#">'Derniers posts sur Facebook</a></h5>
+                  <p>
+                      <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
+                      <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
+                      <span><i class="fi-comments"> 6 comments</i></span>
+                  </p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae.</p>
+              </div>
+          </div> -->
+      </div>
+
     </div>
 
+
+
+<!------------------------------------------------------ galerie categorie -->
+
+    <div class="categorieGalerie rowHome">
+
+        <div class="row">
+            <div class="large-12 columns buttonHollow">
+                <div class="text-center">
+                    <a href="{% url "event-list" %}" class="button large hollow">CATEGORIES</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row small-up-1 medium-up-2 large-up-4">
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+                <img class="thumbnail imgCat" src="/static/img/concertunthumbnail.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button large hollow">CONCERTS</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+              <img class="thumbnail imgCat" src="/static/img/artthumbnail.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button large hollow">ARTS</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+              <img class="thumbnail imgCat" src="/static/img/coursthumbnail.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button large hollow">COURS & ATELIERS</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+                <img class="thumbnail imgCat" src="/static/img/concertunthumbnail.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button large hollow">CONCERTS</a>
+              </div>
+            </div>
+          </div>
+          </div>
+
+
+        <div class="row small-up-1 medium-up-2 large-up-2">
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+                <img class="thumbnail imgCat" src="/static/img/sportun.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button large hollow">SPORT</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+              <img class="thumbnail imgCat" src="/static/img/feteunBis.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button large hollow">FETES</a>
+              </div>
+            </div>
+          </div>
+          </div>
+       </div>
+<!-- -------fin galerie categorie -->
+
+
+
+  </div>
 </div>
-
-
 
 
 {% endblock %}

@@ -22,34 +22,39 @@
 <header>
 
     <!--   logo et login -->
-    <div class="top-bar-left">
-        <ul class="menu">
-            <li><img class="thumbnail" src="http://placehold.it/100x100"></li>
-        </ul>
-    </div>
 
-    <div class="top-bar-right">
-        <ul class="menu">
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'userena_profile_detail' user.username %}">
-                Bonjour, {{ user }}
-            </a></li>
-            <li><a href="{% url "lozsignout" %}" class="button large hollow">SE DECONNECTER</a></li>
-            {% else %}
-            <li><a href="{% url "lozsignin" %}" class="button large hollow">CONNEXION</a></li>
-            {% endif %}
-        </ul>
+    <div class="top-bar">
+      <div class="row">
+        <div class="top-bar-left">
+            <ul class="menu">
+              <li class="menu-text" role="menuitem" tabindex="0"><a href="{% url "home-page" %}">Loz'Events.com</a></li>
+              <!-- <li><img class="thumbnail" src="http://placehold.it/20x20"></li> -->
+            </ul>
+        </div>
+
+        <div class="top-bar-right">
+            <ul class="menu">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'userena_profile_detail' user.username %}">
+                    Bonjour, {{ user }}
+                </a></li>
+                <li><a href="{% url "lozsignout" %}" class="button large hollow">SE DECONNECTER</a></li>
+                {% else %}
+                <li><a href="{% url "lozsignin" %}" class="button large hollow">CONNEXION</a></li>
+                {% endif %}
+            </ul>
+        </div>
+      </div>
     </div>
 
 
     <!-- image titre bouton-->
-    <div class="row rowHeader">
+    <div class="row">
         <div class="large-12 columns">
             <div class="row column text-center">
-                <h1>Loz'Events</h1>
+                <h1 class="titreH">Loz'Events</h1>
                 <a href="{% url "event-list" %}" class="button large hollow">EVENTS</a>
                 <div>
-                    <a href="https://github.com/laetilu/lozevents"><i class="fa fa-github" aria-hidden="true"></i></a>
                     <a href="https://www.facebook.com/Loz%C3%A8re-Animations-1722455281324360/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                 </div>
             </div>
@@ -62,7 +67,7 @@
   <!-- barre de recherche -->
 
     <div class="row">
-        <div class="large-12 columns rechercheH">
+        <div class="large-12 columns">
             <div class="callout secondary calloutH">
                 <form>
                     <div class="row">

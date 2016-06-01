@@ -113,6 +113,7 @@ DATABASES = {
         'NAME': "lozevents",
         'USER': 'lozevents',
         'PASSWORD': 'plop',
+        'HOST' : '/Applications/MAMP/tmp/mysql/mysql.sock',
     }
 }
 

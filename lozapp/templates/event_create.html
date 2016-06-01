@@ -62,7 +62,7 @@
 
 
 
-    <form role="form" name="form" action="/event/create" method="post" enctype="multipart/form-data" >
+    <form class="log-in-form" role="form" name="form" action="/event/create" method="post" enctype="multipart/form-data" >
      {% csrf_token %}
        <!-- {{form.title.label_tag}}
        {{form.title}}
@@ -72,8 +72,8 @@
        {{form.errors}} -->
        {{form}}
 
-       <button type="submit" class="btn btn-primary"> Valider</button>
-       <button type="button" class="btn btn-inverse"> Annuler</button>
+       <button type="submit" class="button expanded">Valider</button>
+
     </form>
 
 
