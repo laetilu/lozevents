@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import site_settings
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -103,19 +104,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'lozevents.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'NAME': "lozevents",
-        'USER': 'lozevents',
-        'PASSWORD': 'plop',
-        'HOST' : '/Applications/MAMP/tmp/mysql/mysql.sock',
-    }
-}
 
 
 # Password validation
