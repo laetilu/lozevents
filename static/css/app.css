@@ -3523,8 +3523,11 @@ h1, h3 {
 /* .text-center {
   text-align: center;
 } */
+.titreH1 {
+  margin-top: 0.6em; }
+
 .titreH {
-  margin-top: 2em; }
+  color: #292C37 !important; }
 
 .rechercheH {
   /* margin-top: 14rem; */ }
@@ -3547,7 +3550,7 @@ h1, h3 {
 
 /* -----------------------Homepage categorie */
 .categorieGalerie {
-  background-color: rgba(12, 2, 52, 0.9); }
+  background-color: rgba(230, 230, 230, 0.9); }
 
 /* ---------homepage wrapper */
 .image-wrapper {
@@ -3577,12 +3580,12 @@ h1, h3 {
   transition: all 0.2s linear; }
 .overlay-fade-in .image-overlay-content {
   opacity: 0;
-  background-color: rgba(12, 2, 52, 0.9);
+  background-color: rgba(230, 230, 230, 0.9);
   transition: all 0.4s ease-in-out; }
   .overlay-fade-in .image-overlay-content h3 {
     color: #fff; }
   .overlay-fade-in .image-overlay-content a {
-    color: #fff; }
+    color: black; }
 .overlay-fade-in h2 {
   color: #f2f2f2;
   font-size: 1.8rem;
@@ -3710,6 +3713,26 @@ h1, h3 {
 
 #fb-page {
   height: 450px; }
+
+/*-------------------------------------EVENT LIST */
+.callouteventlist {
+  height: 30rem;
+  background-color: #f8f8f8 !important; }
+
+.thumbnaileventlist {
+  height: 12rem; }
+
+.dateeventlist {
+  font-size: smaller; }
+
+/* -----------------------------------------event display */
+.eventdisplayinfo {
+  text-align: justify;
+  margin-left: 4rem; }
+
+.infoevent {
+  background-color: #f8f8f8 !important;
+  padding: 2rem !important; }
 
 /* --------------------------------------------------Post */
 .log-in-form {

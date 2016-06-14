@@ -1,12 +1,19 @@
 #!/usr/bin/env python
 from django.shortcuts import render
 from models import *
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.urlresolvers import reverse, reverse_lazy
 
 
-def homepage(request):
-    return render(request, "homepage.html")
+class HomepageTemplateView(TemplateView):
+   template_name = "homepage.html"
+
+   def get_context_data(self, **kwargs):
+       context = super(HomepageTemplateView, self).get_context_data(**kwargs)
+       context["events"] = Event.objects.all()
+       return context
+
+
 
 def event_display(request, slug):
     return render(request, "event_display.html")
