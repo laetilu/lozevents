@@ -61,6 +61,8 @@ class Event(models.Model):
 @receiver(pre_save, sender=Address)
 def address_geocoding(sender, instance,**kwargs):
     geolocator = Nominatim()
-    location = geolocator.geocode("%s" % instance.city)
-    #print location 
-    instance.poly = fromstr('POINT(%s %s)' % (location.longitude, location.latitude))
+    try:
+        location = geolocator.geocode("%s %s" % (instance.street, instance.city))
+        instance.poly = fromstr('POINT(%s %s)' % (location.longitude, location.latitude))
+    except:
+        pass
