@@ -1,4 +1,6 @@
- {% extends 'base.html' %} {% block content %}
+ {% extends 'base.html' %}
+{% load leaflet_tags %}
+ {% block content %}
 
 
 <div class="row">
@@ -18,130 +20,173 @@
 <!-------------------------------espace slider -->
 
 
-    <div class="row">
-        <div class="large-12 columns">
-            <div class="text-center">
-                <h3>Dernières Actus</h3>
-            </div>
-        </div>
-    </div>
-
     <div class="row rowHome">
-    <div class="large-8 columns">
-        <div class="responsive">
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event2.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/1551325265169414/">26JUN <br>Running du Lac de Charpal<br> dim8:30 <br> lac de Charpal 48170 Laubert</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="responsive">
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event2.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/1551325265169414/">26JUN <br>Running du Lac de Charpal <br>dim8:30 <br> lac de Charpal 48170 Laubert</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                    <div class="image-overlay-content">
-                        <h3>Sport</h3>
-                        <a href="https://www.facebook.com/events/270814299937106/">25JUN <br> Mende part en vadrouille</a>
-                    </div>
-                </div>
-            </div>
+    <div class="large-8 columns">
+        <div class="text-center">
+            <h3>La carte des événements</h3>
         </div>
+        <script type="text/javascript">
+        function map_init_basic (map, options) {
+            {% for event in events %}
+            L.marker([{{event.addr.poly.y|stringformat:".3f"}}, {{event.addr.poly.x|stringformat:".3f"}}]).addTo(map).bindPopup('{{event.title}}');
+            {% endfor %}
+        }
+        </script>
+        <div>
+            {% leaflet_map "idmap" callback="window.map_init_basic" %}
+        </div>
+        <div class="text-center">
+            <h3>Les événements par catégorie</h3>
+        </div>
+        <div class="categorieGalerie rowHome">
+
+            <!-- <div class="row">
+                <div class="large-12 columns buttonHollow">
+                    <div class="text-center">
+                        <a href="{% url "event-list" %}" class="button large hollow">CATEGORIES</a>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <div class="row small-up-1 medium-up-2 large-up-4">
+              <div class="column">
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/concertunthumbnail.jpg">
+                  <div class="image-overlay-content">
+                    <a href="#" class="button large hollow">CONCERTS</a>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="image-wrapper overlay-fade-in">
+                  <img class="thumbnail imgCat" src="/static/img/artthumbnail.jpg">
+                  <div class="image-overlay-content">
+                    <a href="#" class="button large hollow">ARTS</a>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="image-wrapper overlay-fade-in">
+                  <img class="thumbnail imgCat" src="/static/img/coursthumbnail.jpg">
+                  <div class="image-overlay-content">
+                    <a href="#" class="button large hollow">COURS & ATELIERS</a>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/patrimoine.jpeg">
+                  <div class="image-overlay-content">
+                    <a href="#" class="button large hollow">PATRIMOINE</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+
+            <div class="row small-up-1 medium-up-2 large-up-2">
+              <div class="column">
+                <div class="image-wrapper overlay-fade-in">
+                    <img class="thumbnail imgCat" src="/static/img/sportun.jpg">
+                  <div class="image-overlay-content">
+                    <a href="#" class="button large hollow">SPORT</a>
+                  </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="image-wrapper overlay-fade-in">
+                  <img class="thumbnail imgCat" src="/static/img/fetes.jpg">
+                  <div class="image-overlay-content">
+                    <a href="#" class="button large hollow">FETES</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+           </div>
       </div>
 
 <!-------------------------------espace facebook -->
 
       <div class="large-4 columns">
-          <!-- <div class="row">
-              <div class="large-6 columns">
-                  <p><img src="http://placehold.it/300x300" alt="image for article"></p>
+          <div class="text-center">
+              <h3>Dernières Actus</h3>
+          </div>
+          <div class="responsive">
+              <div>
+                  <div class="image-wrapper overlay-fade-in">
+                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                      <div class="image-overlay-content">
+                          <h3>Sport</h3>
+                          <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
+                      </div>
+                  </div>
               </div>
-              <div class="large-6 columns">
-                  <h5><a href="#">'Derniers posts sur Facebook</a></h5>
-                  <p>
-                      <span><i class="fi-torso"> By Thadeus &nbsp;&nbsp;</i></span>
-                      <span><i class="fi-calendar"> 11/23/16 &nbsp;&nbsp;</i></span>
-                      <span><i class="fi-comments"> 6 comments</i></span>
-                  </p>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae.</p>
+              <div>
+                  <div class="image-wrapper overlay-fade-in">
+                          <img class="thumbnail imgCat" src="/static/img/event2.jpg">
+                          <div class="image-overlay-content">
+                          <h3>Sport</h3>
+                          <a href="https://www.facebook.com/events/1551325265169414/">26JUN <br>Running du Lac de Charpal<br> dim8:30 <br> lac de Charpal 48170 Laubert</a>
+                      </div>
+                  </div>
               </div>
-          </div> -->
+              <div>
+                  <div class="image-wrapper overlay-fade-in">
+                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                      <div class="image-overlay-content">
+                          <h3>Sport</h3>
+                          <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
+                      </div>
+                  </div>
+              </div>
+              <div>
+                  <div class="image-wrapper overlay-fade-in">
+                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                      <div class="image-overlay-content">
+                          <h3>Sport</h3>
+                          <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
+                      </div>
+                  </div>
+              </div>
+              <div>
+                  <div class="image-wrapper overlay-fade-in">
+                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                      <div class="image-overlay-content">
+                          <h3>Sport</h3>
+                          <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
+                      </div>
+                  </div>
+              </div>
+              <div>
+                  <div class="image-wrapper overlay-fade-in">
+                          <img class="thumbnail imgCat" src="/static/img/event2.jpg">
+                          <div class="image-overlay-content">
+                          <h3>Sport</h3>
+                          <a href="https://www.facebook.com/events/1551325265169414/">26JUN <br>Running du Lac de Charpal<br> dim8:30 <br> lac de Charpal 48170 Laubert</a>
+                      </div>
+                  </div>
+              </div>
+              <div>
+                  <div class="image-wrapper overlay-fade-in">
+                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                      <div class="image-overlay-content">
+                          <h3>Sport</h3>
+                          <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
+                      </div>
+                  </div>
+              </div>
+              <div>
+                  <div class="image-wrapper overlay-fade-in">
+                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                      <div class="image-overlay-content">
+                          <h3>Sport</h3>
+                          <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
           <div id="fb-root"></div>
               <script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -178,72 +223,7 @@
 
 <!------------------------------------------------------ galerie categorie -->
 
-    <div class="categorieGalerie rowHome">
 
-        <div class="row">
-            <div class="large-12 columns buttonHollow">
-                <div class="text-center">
-                    <a href="{% url "event-list" %}" class="button large hollow">CATEGORIES</a>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row small-up-1 medium-up-2 large-up-4">
-          <div class="column">
-            <div class="image-wrapper overlay-fade-in">
-                <img class="thumbnail imgCat" src="/static/img/concertunthumbnail.jpg">
-              <div class="image-overlay-content">
-                <a href="#" class="button large hollow">CONCERTS</a>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="image-wrapper overlay-fade-in">
-              <img class="thumbnail imgCat" src="/static/img/artthumbnail.jpg">
-              <div class="image-overlay-content">
-                <a href="#" class="button large hollow">ARTS</a>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="image-wrapper overlay-fade-in">
-              <img class="thumbnail imgCat" src="/static/img/coursthumbnail.jpg">
-              <div class="image-overlay-content">
-                <a href="#" class="button large hollow">COURS & ATELIERS</a>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="image-wrapper overlay-fade-in">
-                <img class="thumbnail imgCat" src="/static/img/patrimoine.jpeg">
-              <div class="image-overlay-content">
-                <a href="#" class="button large hollow">PATRIMOINE</a>
-              </div>
-            </div>
-          </div>
-          </div>
-
-
-        <div class="row small-up-1 medium-up-2 large-up-2">
-          <div class="column">
-            <div class="image-wrapper overlay-fade-in">
-                <img class="thumbnail imgCat" src="/static/img/sportun.jpg">
-              <div class="image-overlay-content">
-                <a href="#" class="button large hollow">SPORT</a>
-              </div>
-            </div>
-          </div>
-          <div class="column">
-            <div class="image-wrapper overlay-fade-in">
-              <img class="thumbnail imgCat" src="/static/img/fetes.jpg">
-              <div class="image-overlay-content">
-                <a href="#" class="button large hollow">FETES</a>
-              </div>
-            </div>
-          </div>
-          </div>
-       </div>
 <!-- -------fin galerie categorie -->
 
 
