@@ -60,9 +60,7 @@ class Event(models.Model):
 
 @receiver(pre_save, sender=Address)
 def address_geocoding(sender, instance,**kwargs):
-    print("Request finished!", sender, instance)
-
     geolocator = Nominatim()
-    location = geolocator.geocode("%s %s" % (instance.city, instance.street))
-    # print((location.latitude, location.longitude))
+    location = geolocator.geocode("%s" % instance.city)
+    #print location 
     instance.poly = fromstr('POINT(%s %s)' % (location.longitude, location.latitude))
