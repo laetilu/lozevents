@@ -69,35 +69,21 @@
     <div class="row">
         <div class="large-12 columns">
             <div class="callout secondary calloutH">
-                <form>
+                <form action="{% url 'event-list'%}" method="GET">
                     <div class="row">
                         <div class="large-3 columns">
-                            <label>
-                                <select>
-                                    <option value="Sport">Sports</option>
-                                    <option value="Arts">Arts</option>
-                                    <option value="Concerts">Concerts</option>
-                                    <option value="Fetes">Fetes</option>
-                                    <option value="Cours et Ateliers">Cours et Ateliers</option>
-                                </select>
-                            </label>
+                            {{search_form.category}}
                         </div>
 
                         <div class="large-4 columns">
-                            <label>
+                            {{search_form.localisation}}
+                            <!-- <label>
                                 <input type="text" placeholder="Dans quel coin?">
-                            </label>
+                            </label> -->
                         </div>
 
                         <div class="large-3 columns">
-                            <label>
-                                <select>
-                                    <option value="Aujourd'hui">Aujourd'hui</option>
-                                    <option value="Demain">Demain</option>
-                                    <option value="Ce We">Ce We</option>
-                                    <option value="Le Mois Prochain">Le Mois Prochain</option>
-                                </select>
-                            </label>
+                            {{search_form.periode}}
                         </div>
 
                         <div class="large-2 columns">

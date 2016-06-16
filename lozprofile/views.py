@@ -4,39 +4,21 @@ from models import LozProfile
 
 from django.views.generic import DetailView
 
-
-def sign_up(request):
-    #if user is authenticated, redirect to user's profile page
-    #otherwise use userena signup view, with my own form,SignupFormExtra, instead of userena's
-
-    if request.user.is_authenticated():
-        username = request.user.username
-        return HttpResponseRedirect('/')
-    else:
-        return signup(request,signup_form=SignupFormPart)
+from userena import settings as userena_settings
+from lozapp.forms import SearchEventForm
 
 
-class ProfileDisplayView(DetailView):
-   model = LozProfile
-   template_name = "profile_display.html"
+def profile_detail(request, username,
+   template_name=userena_settings.USERENA_PROFILE_DETAIL_TEMPLATE,
+   extra_context=None, **kwargs):
+   user = get_object_or_404(get_user_model(), username__iexact=username)
+   profile = get_user_profile(user=user)
+   if not profile.can_view_profile(request.user):
+       raise PermissionDenied
+   if not extra_context: extra_context = dict()
+   extra_context['profile'] = profile
+   extra_context["search_form"] = SearchEventForm()
 
-   def get_context_data(self, **kwargs):
-      context = super(ProfileDisplayView, self).get_context_data(**kwargs)
-      context["profile"] = self.get_object()
-      return context
-# def profile_part_display(request, username):
-#     return render(request, "profile_part_display.html")
-#
-# def profile_pro_display(request, username):
-#     return render(request, "profile_pro_display.html")
-#
-#
-# #voir avec userena
-# def signup_pro(request):
-#     return render(request, "signup_pro.html")
-#
-# def signup_part(request):
-#     return render(request, "signup_part.html")
-#
-# def login(request):
-#     return render(request, "login.html")
+   extra_context['hide_email'] = userena_settings.USERENA_HIDE_EMAIL
+   return ExtraContextTemplateView.as_view(template_name=template_name,
+                                           extra_context=extra_context)(request)

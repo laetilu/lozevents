@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from models import *
-from forms import EventForm
+from forms import EventForm, SearchEventForm
 
 
 class HomepageTemplateView(TemplateView):
@@ -13,8 +13,9 @@ class HomepageTemplateView(TemplateView):
    def get_context_data(self, **kwargs):
        context = super(HomepageTemplateView, self).get_context_data(**kwargs)
        context["events"] = Event.objects.all()
-       return context
+       context["search_form"] = SearchEventForm()
 
+       return context
 
 
 def event_display(request, slug):
@@ -24,12 +25,31 @@ def event_display(request, slug):
 
 
 class EventListView(ListView):
-   model = Event
-   template_name = "event_list.html"
-   context_object_name = "events"
-   queryset = Event.objects.all().order_by('date_creation') #remplace la fonction get_queryset
+    model = Event
+    template_name = "event_list.html"
+    context_object_name = "events"
+    queryset = Event.objects.all().order_by('date_creation') #remplace la fonction get_queryset
 
+    def get_context_data(self, **kwargs):
+        context = super(EventListView, self).get_context_data(**kwargs)
+        context["search_form"] = SearchEventForm()
+        return context
 
+    def get_queryset(self):
+        categorie_id = self.request.GET.get("category", None)
+        localisation = self.request.GET.get("localisation", None)
+        periode = self.request.GET.get("periode", None)
+
+        events = Event.objects.all()
+        if categorie_id != None:
+            category = Categorie.objects.get(id=categorie_id)
+            events = category.event_set.all()
+        if localisation != None:
+            pass
+        if periode !=None:
+            pass
+
+        return events
 
 class EventCreateView(CreateView):
     model = Event
@@ -46,6 +66,10 @@ class EventCreateView(CreateView):
         })
         return form_kwargs
 
+    def get_context_data(self, **kwargs):
+        context = super(EventListView, self).get_context_data(**kwargs)
+        context["search_form"] = SearchEventForm()
+        return context
 
     # def get_initial(self):
     #     return {"pro" : self.request.user}
@@ -58,4 +82,5 @@ class EventDisplayView(DetailView):
     def get_context_data(self, **kwargs):
        context = super(EventDisplayView, self).get_context_data(**kwargs)
        context["event"] = self.get_object()
+       context["search_form"] = SearchEventForm()
        return context
