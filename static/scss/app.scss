@@ -87,7 +87,7 @@ h1,h3 {
 
 }
 .titreH{
-	
+
   color:#292C37 !important;
 }
 .rechercheH{
@@ -113,11 +113,11 @@ h1,h3 {
 	padding: 1rem;
 }
 /* -----------------------Homepage categorie */
-.categorieGalerie{
-	background-color:rgba(230, 230, 230, 0.9);
+/* .categorieGalerie{
+  background-color:rgba(230, 230, 230, 0.9);
 
 
-}
+} */
 
 
 
@@ -358,7 +358,9 @@ $global-radius: 4px;
 
 
 .imgCat{
-	height: 250px;
+	height: 15rem;
+  width: 100%;
+  padding: 1rem;
 
 }
 
