@@ -26,6 +26,7 @@ class Address(models.Model): #REGARDER GEODJANGO
 
 class Categorie(models.Model):
     name = models.CharField(max_length=45)
+    photo = models.ImageField(upload_to='categories', null = True)
 
     def __unicode__(self):
         return "%s" % self.name
