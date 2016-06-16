@@ -2,12 +2,18 @@ from django import forms
 from models import Event, Categorie
 
 class EventForm(forms.ModelForm):
+
+    street = forms.CharField(max_length=45)
+    zipcode = forms.CharField(max_length=5)
+    city =  forms.CharField(max_length=100)
+
     class Meta:
         model = Event
-        exclude = ['participant', 'is_validated']
+        exclude = ['participant', 'is_validated', 'addr']
         widgets = {
             "pro" : forms.HiddenInput()
             }
+
 
 class SearchEventForm(forms.Form):
     PERIODE_CHOICES = (

@@ -38,7 +38,7 @@ class Event(models.Model):
     begin_date = models.DateTimeField()
     end_date = models.DateTimeField()
     desc = models.TextField()
-    slug = AutoSlugField(populate_from='title', null = True)
+    slug = AutoSlugField(populate_from='title', unique_with="title", null = True)
     date_creation = models.DateTimeField(auto_now_add=True)
 
     photo = models.ImageField(upload_to='events', null = True)
@@ -47,7 +47,7 @@ class Event(models.Model):
 
     pro = models.ForeignKey("lozprofile.ProfilePro")
 
-    addr = models.ForeignKey(Address)
+    addr = models.ForeignKey(Address, null=True, blank=True)
 
     is_validated = models.BooleanField(default=False)
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from django.shortcuts import render
 from django.core.urlresolvers import reverse, reverse_lazy
+from django.http import HttpResponseRedirect, HttpResponse
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from models import *
@@ -15,12 +16,8 @@ class HomepageTemplateView(TemplateView):
        context["events"] = Event.objects.all()
        return context
 
-
 def event_display(request, slug):
     return render(request, "event_display.html")
-
-
-
 
 class EventListView(ListView):
     model = Event
@@ -48,7 +45,6 @@ class EventCreateView(CreateView):
     model = Event
     form_class = EventForm
     template_name = "event_create.html"
-    success_url = reverse_lazy('event-list')
 
     def get_form_kwargs(self):
         form_kwargs = super(EventCreateView, self).get_form_kwargs()
@@ -59,6 +55,15 @@ class EventCreateView(CreateView):
         })
         return form_kwargs
 
+    def form_valid(self, form):
+        if form.is_valid():
+            event=form.save()
+            event.addr = Address.objects.create(street=form.cleaned_data["street"],
+                                                zipcode=form.cleaned_data["zipcode"],
+                                                city=form.cleaned_data["city"])
+            event.save()
+            return HttpResponseRedirect(reverse("event-display", args=[event.slug]))
+        return self.render_to_response(self.get_context_data(form=form))
 
 class EventDisplayView(DetailView):
     model = Event
