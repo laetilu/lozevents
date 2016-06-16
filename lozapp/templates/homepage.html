@@ -114,78 +114,18 @@
               <h3>Dernières Actus</h3>
           </div>
           <div class="responsive">
+
+              {% for event in events %}
               <div>
                   <div class="image-wrapper overlay-fade-in">
-                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
+                      <img class="thumbnail imgCat" src="/media/{{event.photo}}">
                       <div class="image-overlay-content">
-                          <h3>Sport</h3>
-                          <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
+                          <h3>{{event.categorie}}</h3>
+                          <a href="event/{{event.slug}}">{{event.begin_date}}<br>{{event.title}}</a>
                       </div>
                   </div>
               </div>
-              <div>
-                  <div class="image-wrapper overlay-fade-in">
-                          <img class="thumbnail imgCat" src="/static/img/event2.jpg">
-                          <div class="image-overlay-content">
-                          <h3>Sport</h3>
-                          <a href="https://www.facebook.com/events/1551325265169414/">26JUN <br>Running du Lac de Charpal<br> dim8:30 <br> lac de Charpal 48170 Laubert</a>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <div class="image-wrapper overlay-fade-in">
-                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                      <div class="image-overlay-content">
-                          <h3>Sport</h3>
-                          <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <div class="image-wrapper overlay-fade-in">
-                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                      <div class="image-overlay-content">
-                          <h3>Sport</h3>
-                          <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <div class="image-wrapper overlay-fade-in">
-                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                      <div class="image-overlay-content">
-                          <h3>Sport</h3>
-                          <a href="https://www.facebook.com/events/270814299937106/">25JUN<br> Mende part en vadrouille</a>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <div class="image-wrapper overlay-fade-in">
-                          <img class="thumbnail imgCat" src="/static/img/event2.jpg">
-                          <div class="image-overlay-content">
-                          <h3>Sport</h3>
-                          <a href="https://www.facebook.com/events/1551325265169414/">26JUN <br>Running du Lac de Charpal<br> dim8:30 <br> lac de Charpal 48170 Laubert</a>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <div class="image-wrapper overlay-fade-in">
-                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                      <div class="image-overlay-content">
-                          <h3>Sport</h3>
-                          <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
-                      </div>
-                  </div>
-              </div>
-              <div>
-                  <div class="image-wrapper overlay-fade-in">
-                      <img class="thumbnail imgCat" src="/static/img/event1.jpg">
-                      <div class="image-overlay-content">
-                          <h3>Sport</h3>
-                          <a href="https://www.facebook.com/events/270814299937106/">25JUN <br>Mende part en vadrouille</a>
-                      </div>
-                  </div>
-              </div>
+              {% endfor %}
           </div>
           <div id="fb-root"></div>
               <script>(function(d, s, id) {

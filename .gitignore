@@ -1,7 +1,6 @@
-static/css/app.css.map
-static/css/app.css
 db.sqlite3
 *.pyc
+*css
 .sass-cache
 *.db
 /static/bower_components
