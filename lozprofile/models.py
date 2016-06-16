@@ -24,7 +24,6 @@ class ProfilePro(models.Model):
     profile = models.OneToOneField(LozProfile,
                                 unique=True,
                                 related_name='pro')
-
     company_name = models.CharField(max_length=200)
     siret = models.IntegerField()
     number = models.IntegerField()

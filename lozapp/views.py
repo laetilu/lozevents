@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 from django.shortcuts import render
-from models import *
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.core.urlresolvers import reverse, reverse_lazy
+
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
+from models import *
+from forms import EventForm
 
 
 class HomepageTemplateView(TemplateView):
@@ -31,12 +33,22 @@ class EventListView(ListView):
 
 class EventCreateView(CreateView):
     model = Event
+    form_class = EventForm
     template_name = "event_create.html"
-    fields = ['title', 'photo', 'begin_date', 'end_date', 'desc', 'categorie', 'addr', 'pro']
     success_url = reverse_lazy('event-list')
 
-    def get_initial(self):
-        return {"pro" : self.request.user}
+    def get_form_kwargs(self):
+        form_kwargs = super(EventCreateView, self).get_form_kwargs()
+        form_kwargs.update({
+            "initial" : {
+                "pro" : self.request.user.lozprofile.pro
+            }
+        })
+        return form_kwargs
+
+
+    # def get_initial(self):
+    #     return {"pro" : self.request.user}
 
 
 class EventDisplayView(DetailView):
