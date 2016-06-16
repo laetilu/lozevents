@@ -1,4 +1,4 @@
-{% extends 'userena/base_userena.html' %}
+{% extends 'base2.html' %}
 {% load i18n %}
 
 {% block title %}{% trans "Signin" %}{% endblock %}
@@ -11,30 +11,25 @@
 </form> -->
 
 
-<!-- <div class="top-bar">
-  <div class="row">
+<div class="top-bar">
+
     <div class="top-bar-left">
         <ul class="menu">
           <li class="menu-text" role="menuitem" tabindex="0"><a href="{% url "home-page" %}">Loz'Events.com</a></li>
-          <li><img class="thumbnail" src="http://placehold.it/20x20"></li>
-        </ul>
-    </div> -->
 
-<!-- breadcrumb -->
-
-<div class="row columns">
-    <nav aria-label="You are here:" role="navigation">
-        <ul class="breadcrumbs">
-            <li><a href="{% url "home-page" %}">Home</a></li>
-            <li class="disabled">log</li>
         </ul>
-    </nav>
+    </div>
+
 </div>
 
+
+
       <!-- fenetre log in -->
+<div class="formcol">
+
 
 <div class="row">
-  <div class="medium-6 medium-centered large-4 large-centered columns">
+  <div class="medium-6 columns ">
 
     <form class="log-in-form" action="/profile/signin" method="post">
     {% csrf_token %}
@@ -48,29 +43,29 @@
 
         </label>
         <p><button type="submit" class="button expanded">Se connecter</button></p>
-        <p class="text-center"> Ou </p>
-        <p><button type="submit" class="button expanded">Se connecter avec Facebook</button></p>
+        <!-- <p class="text-center"> Ou </p>
+        <p><button type="submit" class="button expanded">Se connecter avec Facebook</button></p> -->
         <p class="text-center"><a href="#">mot de passe oublié?</a></p>
 
       </div>
     </form>
 
   </div>
-</div>
 
-<p class="text-center"><br>
+
+<!-- <p class="text-center"><br>
   OU
-<br></p>
+<br></p> -->
 
     <!-- fenetre inscription -->
 
 
-<div class="row">
-  <div class="medium-6 medium-centered large-4 large-centered columns">
+
+  <div class="medium-6 columns formcol">
 
     <form class="log-in-form">
       <div class="row column ">
-        <h4 class="text-center">Creez votre comptre</h4>
+        <h4 class="text-center">Creez un compte</h4>
         <p><a href="{% url "lozsignup-part" %}" type="submit" class="button expanded">Compte particulier</a></p>
         <p class="text-center"> Or </p>
         <p><a href="{% url "lozsignup-pro" %}" type="submit" class="button expanded">Compte pro</a></p>
@@ -78,5 +73,5 @@
     </form>
   </div>
 </div>
-
+</div>
 {% endblock %}

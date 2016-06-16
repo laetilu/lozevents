@@ -1,8 +1,19 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base2.html' %} {% block content %}
+
+<div class="top-bar">
+
+    <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text" role="menuitem" tabindex="0"><a href="{% url "home-page" %}">Loz'Events.com</a></li>
+
+        </ul>
+    </div>
+
+</div>
 
 
 <div class="row">
-    <div class="medium-6 medium-centered large-4 large-centered columns">
+    <div class="medium-4 medium-centered large-6 large-centered columns">
 
 
         <form class="log-in-form" action="/profile/signup/part" method="post">

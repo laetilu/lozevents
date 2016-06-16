@@ -16,9 +16,12 @@
           {% block profile_navigation_items %}
           <div class="column">
             <img class="text-center" src="/static/img/profile.png" alt="">
-            <a href="{% url 'userena_profile_detail' user.username %}" class="button large hollow">{% trans "View profile" %}</a>
+            <p><a href="{% url 'userena_profile_detail' user.username %}" class="button hollow">{% trans "View profile" %}</a></p>
           </div>
-            <div class="column"><p><a href="{% url 'userena_profile_edit' user.username %}"><img class="" src="/static/img/account.png" alt=""/>{% trans "Edit details" %}</a></p></div>
+            <div class="column">
+              <img class="" src="/static/img/account.png" alt=""/>
+              <p><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit details" %}</a></p>
+          </div>
             <div class="column"><p><a href="{% url 'userena_password_change' user.username %}"><img class="" src="/static/img/password.png" alt=""/>{% trans "Change password" %}</a></p></div>
             <div class="column"><p><a href="{% url 'userena_email_change' user.username %}"><img class="" src="/static/img/email.png" alt=""/>{% trans "Change email" %}</a></p></div>
           {% endblock %}
@@ -28,9 +31,9 @@
 
     <div id="details">
       {% block profile_details %}
-        <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" />
+        <!-- <img class="mugshot" src="{{ profile.get_mugshot_url }}" alt="{% trans "Your mugshot" %}" /> -->
         <dl>
-          {% block profile_definition_list %}
+          <!-- {% block profile_definition_list %}
             {% if profile.user.get_full_name %}
               <dt>{% trans "Name" %}</dt>
               <dd>{{ profile.user.get_full_name }}</dd>
@@ -55,7 +58,7 @@
               <dt>{% trans "About me" %}</dt>
               <dd>{{ profile.about_me }}</dd>
             {% endif %}
-          {% endblock %}
+          {% endblock %} -->
         </dl>
       {% endblock %}
     </div>
