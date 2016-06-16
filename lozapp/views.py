@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from models import *
-from forms import EventForm, SearchEventForm
+from forms import EventForm
 
 
 class HomepageTemplateView(TemplateView):
@@ -13,8 +13,6 @@ class HomepageTemplateView(TemplateView):
    def get_context_data(self, **kwargs):
        context = super(HomepageTemplateView, self).get_context_data(**kwargs)
        context["events"] = Event.objects.all()
-       context["search_form"] = SearchEventForm()
-
        return context
 
 
@@ -29,11 +27,6 @@ class EventListView(ListView):
     template_name = "event_list.html"
     context_object_name = "events"
     queryset = Event.objects.all().order_by('date_creation') #remplace la fonction get_queryset
-
-    def get_context_data(self, **kwargs):
-        context = super(EventListView, self).get_context_data(**kwargs)
-        context["search_form"] = SearchEventForm()
-        return context
 
     def get_queryset(self):
         categorie_id = self.request.GET.get("category", None)
@@ -66,14 +59,6 @@ class EventCreateView(CreateView):
         })
         return form_kwargs
 
-    def get_context_data(self, **kwargs):
-        context = super(EventListView, self).get_context_data(**kwargs)
-        context["search_form"] = SearchEventForm()
-        return context
-
-    # def get_initial(self):
-    #     return {"pro" : self.request.user}
-
 
 class EventDisplayView(DetailView):
     model = Event
@@ -82,5 +67,4 @@ class EventDisplayView(DetailView):
     def get_context_data(self, **kwargs):
        context = super(EventDisplayView, self).get_context_data(**kwargs)
        context["event"] = self.get_object()
-       context["search_form"] = SearchEventForm()
        return context
