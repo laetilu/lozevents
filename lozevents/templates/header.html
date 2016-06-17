@@ -21,7 +21,7 @@
 <div class="header">
 <header>
 
-    <!--   logo et login -->
+    <!---------------------------logo et login -->
 
     <div class="top-bar">
       <div class="row">
@@ -38,9 +38,9 @@
                 <li><a href="{% url 'userena_profile_detail' user.username %}">
                     Bonjour, {{ user }}
                 </a></li>
-                <li><a href="{% url "lozsignout" %}" class="button large hollow">SE DECONNECTER</a></li>
+                <li><a href="{% url "lozsignout" %}" class="button hollow">Se deconnecter</a></li>
                 {% else %}
-                <li><a href="{% url "lozsignin" %}" class="button hollow">CONNEXION</a></li>
+                <li><a href="{% url "lozsignin" %}" class="button hollow">Connexion</a></li>
                 {% endif %}
             </ul>
         </div>

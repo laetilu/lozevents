@@ -1,6 +1,6 @@
  {% extends 'base.html' %}
 
-<!-- breadcrumb -->
+<!-- ----------------------------breadcrumb -->
 {% load leaflet_tags %}
 
 {% block content %}
@@ -13,64 +13,30 @@
     </nav>
 </div>
 
-<!-- info evenements -->
+<!-- ---------------------------info evenements -->
 
 <div class="row medium-8 large-7 columns">
   <p class="alert label">{{event.categorie}}</p>
-  <div class="infoevent">
-
-
-
-<div class="text-center">
-<p><img class="thumbnail" src="/media/{{event.photo}}"></p>
-</div>
-<div class="eventdisplayinfo">
-<p class="lead">{{event.title}}</p>
-<p class="event-desc">{{event.desc|safe}}</p>
-<p>Organisateur, pro : {{event.pro}}<br>
-Date de debut : {{event.begin_date}}<br>
-Date de fin : {{event.end_date}}<br>
-
-Adresse : {{event.addr}}<br>
-
-</p>
+    <div class="infoevent">
+        <div class="text-center">
+            <p><img class="thumbnail" src="/media/{{event.photo}}"></p>
+        </div>
+        <div class="eventdisplayinfo">
+            <p class="lead">{{event.title}}</p>
+            <p class="event-desc">{{event.desc|safe}}</p>
+            <p>Organisateur, pro : {{event.pro}}<br>
+            Date de debut : {{event.begin_date}}<br>
+            Date de fin : {{event.end_date}}<br>
+            Adresse : {{event.addr}}<br></p>
+        </div>
+   </div>
 </div>
 
 
 
-</div>
-</div>
+<!-- ----------------------------------------------------map -->
 
-
-    <!-- <div class="medium-6 columns medium-push-6">
-        <img class="thumbnail" src="/media/{{event.photo}}">
-    </div>
-    <div class="medium-6 columns medium-pull-6">
-        <h2>Titre : {{event.title}}</h2>
-        <p class="event-desc">{{event.desc|safe}}</p>
-        <p>Organisateur, pro : {{event.pro}}</p>
-        <p>Date de debut : {{event.begin_date}}</p>
-        <p>Date de fin : {{event.end_date}}</p>
-        <p>Categorie : {{event.categorie}}</p>
-        <p>Adresse : {{event.addr}}</p>
-        <p>Participants :
-
-
-            {% for user in users %}
-            {{users}}
-            {% endfor %}
-
-
-        </p>
-
-    </div> -->
-<!-- </div>
-<br> -->
-
-<!-- map -->
 <script type="text/javascript">
-
-
 function map_init_basic (map, options) {
 
     var marker = L.marker([{{event.addr.poly.y|stringformat:".5f"}}, {{event.addr.poly.x|stringformat:".5f"}}]).addTo(map).bindPopup('{{event.title}}');
@@ -81,35 +47,8 @@ function map_init_basic (map, options) {
 
 <div class="row medium-8 large-7 columns">
     <div class="">
-
         {% leaflet_map "idmap" callback="window.map_init_basic" %}
-
-
-
     </div>
 </div>
 
-<!--  evenements similaires slider-->
-
-<!-- <div class="row column">
-    <h4 style="margin: 0;" class="text-center">Evenements similaires</h4>
-</div>
-<div class="row small-up-3 medium-up-4 large-up-5">
-    <div class="column">
-        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
-    </div>
-    <div class="column">
-        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
-    </div>
-    <div class="column">
-        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
-    </div>
-    <div class="column show-for-medium">
-        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
-    </div>
-    <div class="column show-for-large">
-        <img src="http://placehold.it/400x370&amp;text=Look at me!" alt="image for article">
-    </div>
-</div>
- -->
-<br> {% endblock %}
+{% endblock %}

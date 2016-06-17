@@ -2,13 +2,10 @@
 {% load leaflet_tags %}
  {% block content %}
 
-<!--
-<div class="row">
-  <div class="large-12 columns"> -->
 
 <!------------------------------texte accueil -->
     <div class="row rowHome">
-      <div class="large-12 columns texteAccueil">
+      <div class="large-12 columns">
         <p>Bienvenue sur le site de Loz'Events.
           Retrouvez ici tous les petits et grands évenements de la Lozère à Mende et partout en Lozère.
           Tous les bons plans pour sortir sont sur Loz'Events: soirée danse, match, fête de village, cours et atelier...
@@ -22,94 +19,82 @@
 
     <div class="row rowHome">
 
-<!-----------corps map et categorie -->
+<!----------------------------corps map et categorie -->
 
     <div class="large-8 columns">
       <div class="row column">
+          <div class="text-center">
+              <h3>La carte des événements</h3>
+          </div>
+          <script type="text/javascript">
+          function map_init_basic (map, options) {
+              {% for event in events %}
+              L.marker([{{event.addr.poly.y|stringformat:".3f"}}, {{event.addr.poly.x|stringformat:".3f"}}]).addTo(map).bindPopup('{{event.title}}');
+              {% endfor %}
+          }
+          </script>
+          <div>
+              {% leaflet_map "idmap" callback="window.map_init_basic" %}
+          </div>
+        </div>
 
-
-        <div class="text-center">
-            <h3>La carte des événements</h3>
-        </div>
-        <script type="text/javascript">
-        function map_init_basic (map, options) {
-            {% for event in events %}
-            L.marker([{{event.addr.poly.y|stringformat:".3f"}}, {{event.addr.poly.x|stringformat:".3f"}}]).addTo(map).bindPopup('{{event.title}}');
-            {% endfor %}
-        }
-        </script>
-        <div>
-            {% leaflet_map "idmap" callback="window.map_init_basic" %}
-        </div>
-        </div>
         <div class="text-center">
             <h3>Les événements par catégorie</h3>
         </div>
-        <!-- <div class="categorieGalerie rowHome"> -->
 
-            <!-- <div class="row">
-                <div class="large-12 columns buttonHollow">
-                    <div class="text-center">
-                        <a href="{% url "event-list" %}" class="button large hollow">CATEGORIES</a>
-                    </div>
-                </div>
-            </div> -->
+        <div class="row small-up-1 medium-up-2 large-up-4">
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+                <img class="thumbnail " src="/static/img/concertunthumbnail.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button">Concerts</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+              <img class="thumbnail " src="/static/img/artthumbnail.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button">Arts</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+              <img class="thumbnail " src="/static/img/coursthumbnail.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button hollow">Cours & Ateliers</a>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="image-wrapper overlay-fade-in">
+                <img class="thumbnail " src="/static/img/patrimoine.jpg">
+              <div class="image-overlay-content">
+                <a href="#" class="button hollow">Patrimoine</a>
+              </div>
+            </div>
+          </div>
+          </div>
 
-
-            <div class="row small-up-1 medium-up-2 large-up-4">
-              <div class="column">
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail " src="/static/img/concertunthumbnail.jpg">
-                  <div class="image-overlay-content">
-                    <a href="#" class="button hollow">CONCERTS</a>
-                  </div>
+          <div class="row small-up-1 medium-up-2 large-up-2">
+            <div class="column">
+              <div class="image-wrapper overlay-fade-in">
+                  <img class="thumbnail imgCat" src="/static/img/sportun.jpg">
+                <div class="image-overlay-content">
+                  <a href="#" class="button large hollow">Sport</a>
                 </div>
               </div>
-              <div class="column">
-                <div class="image-wrapper overlay-fade-in">
-                  <img class="thumbnail " src="/static/img/artthumbnail.jpg">
-                  <div class="image-overlay-content">
-                    <a href="#" class="button hollow">ARTS</a>
-                  </div>
+            </div>
+            <div class="column">
+              <div class="image-wrapper overlay-fade-in">
+                <img class="thumbnail" src="/static/img/fetes.jpg">
+                <div class="image-overlay-content">
+                  <a href="#" class="button large hollow">Fêtes</a>
                 </div>
               </div>
-              <div class="column">
-                <div class="image-wrapper overlay-fade-in">
-                  <img class="thumbnail " src="/static/img/coursthumbnail.jpg">
-                  <div class="image-overlay-content">
-                    <a href="#" class="button hollow">COURS & ATELIERS</a>
-                  </div>
-                </div>
-              </div>
-              <div class="column">
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail " src="/static/img/patrimoine.jpg">
-                  <div class="image-overlay-content">
-                    <a href="#" class="button hollow">PATRIMOINE</a>
-                  </div>
-                </div>
-              </div>
-              </div>
-
-
-            <div class="row small-up-1 medium-up-2 large-up-2">
-              <div class="column">
-                <div class="image-wrapper overlay-fade-in">
-                    <img class="thumbnail imgCat" src="/static/img/sportun.jpg">
-                  <div class="image-overlay-content">
-                    <a href="#" class="button large hollow">SPORT</a>
-                  </div>
-                </div>
-              </div>
-              <div class="column">
-                <div class="image-wrapper overlay-fade-in">
-                  <img class="thumbnail" src="/static/img/fetes.jpg">
-                  <div class="image-overlay-content">
-                    <a href="#" class="button large hollow">FETES</a>
-                  </div>
-                </div>
-              </div>
-              </div>
+            </div>
+          </div>
            <!-- </div> -->
       </div>
 
@@ -147,10 +132,7 @@
       </div>
 <!-- -----------------------------fin facebook -->
 
-    </div>
-
-<!--   </div>
-</div> -->
+</div>
 
 
 {% endblock %}
