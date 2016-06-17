@@ -1,31 +1,33 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 
 {% block content %}
-<!-- breadcrumb -->
+<!-- Header -->
 
-<div class="row columns">
-<nav aria-label="You are here:" role="navigation">
-  <ul class="breadcrumbs">
-    <li><a href="{% url "home-page" %}">Home</a></li>
-    <li class="disabled">Post</li>
-  </ul>
-</nav>
+<div class="top-bar">
+
+    <div class="top-bar-left">
+        <ul class="menu">
+          <li class="menu-text" role="menuitem" tabindex="0"><a href="{% url "home-page" %}">Loz'Events.com</a></li>
+
+        </ul>
+    </div>
+
 </div>
 
 <!-- texte d'intro -->
 
 <div class="row medium-8 large-7 columns">
-<div class="">
-<h3>Comment poster</h3>
-<img class="thumbnail" src="http://placehold.it/850x350">
-<p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+<div class="text-center">
+<h3>Postez ici votre évenement</h3>
+
+<p>Postez ici votre évenement, il sera en ligne très prochainement.</p>
 </div>
 </div>
 
 <!-- formulaire de post -->
 
-<div class="row">
-  <div class="medium-6 medium-centered large-4 large-centered columns">
+<div class="row medium-8 large-7 columns">
+  <!-- <div class="medium-6 medium-centered large-4 large-centered columns"> -->
 
     <!-- <form>
       <div class="row column log-in-form">

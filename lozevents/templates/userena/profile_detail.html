@@ -5,7 +5,10 @@
 {% block content_title %}<h2>{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %}
 
 {% block content %}
-  <div class="row small-up-2 large-up-4">
+<div class="row medium-8 large-7 columns rowProfile">
+
+
+  <div class="row small-up-2 large-up-3 ">
 
 
   <!-- <div class=""> -->
@@ -15,15 +18,38 @@
 
           {% block profile_navigation_items %}
           <div class="column">
-            <img class="text-center" src="/static/img/profile.png" alt="">
+            <div class="text-center">
+            <img class="iconeprofile" src="/static/img/profile.png" alt="">
             <p><a href="{% url 'userena_profile_detail' user.username %}" class="button hollow">{% trans "View profile" %}</a></p>
+            </div>
           </div>
             <div class="column">
-              <img class="" src="/static/img/account.png" alt=""/>
-              <p><a href="{% url 'userena_profile_edit' user.username %}">{% trans "Edit details" %}</a></p>
+              <div class="text-center">
+              <img class="iconeprofile" src="/static/img/account.png" alt=""/>
+              <p><a href="{% url 'userena_profile_edit' user.username %}" class="button hollow">{% trans "Edit details" %}</a></p>
+            </div>
           </div>
-            <div class="column"><p><a href="{% url 'userena_password_change' user.username %}"><img class="" src="/static/img/password.png" alt=""/>{% trans "Change password" %}</a></p></div>
-            <div class="column"><p><a href="{% url 'userena_email_change' user.username %}"><img class="" src="/static/img/email.png" alt=""/>{% trans "Change email" %}</a></p></div>
+            <div class="column">
+              <div class="text-center">
+              <img class="iconeprofile" src="/static/img/password.png" alt=""/>
+              <p><a href="{% url 'userena_password_change' user.username %}" class="button hollow">{% trans "Change password" %}</a></p>
+            </div>
+          </div>
+          </div>
+          <div class="row small-up-1 large-up-2 rowProfile">
+            <div class="column">
+              <div class="text-center">
+              <img class="iconeprofile" src="/static/img/email.png" alt=""/>
+              <p><a href="{% url 'userena_email_change' user.username %}" class="button hollow">{% trans "Change email" %}</a></p>
+            </div>
+          </div>
+            <div class="column">
+              <div class="text-center">
+              <img class="iconeprofile" src="/static/img/eventicone.png" alt=""/>
+              <p><a href="{% url 'userena_email_change' user.username %}" class="button hollow">{% trans "Change email" %}</a></p>
+            </div>
+          </div>
+          </div>
           {% endblock %}
 
       {% endif %}
@@ -64,5 +90,6 @@
     </div>
   <!-- </div> -->
 
+  </div>
   </div>
 {% endblock %}

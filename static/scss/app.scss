@@ -111,7 +111,11 @@ h1,h3 {
 	margin-top: 2rem;
 }
 .buttonHollow{
-	padding: 1rem;
+
+}
+.button.hollow, .button.hollow:hover, .button.hollow:focus {
+    background-color: rgba(195, 0, 22, 0.72);
+    color: #fff;
 }
 /* -----------------------Homepage categorie */
 /* .categorieGalerie{
@@ -396,7 +400,36 @@ $global-radius: 4px;
 .formcol{
   padding:2rem;
 }
+/* -------------------------------form signup part & pro */
 
+.rowPart{
+  margin: 0;
+  padding: 0;
+  background-image: url('/static/img/fetehome.jpg');
+  background-size: cover;
+}
+.rowPro{
+  margin: 0;
+  padding: 0;
+  background-image: url('/static/img/sporttrois.jpeg');
+  background-size: cover;
+}
+.formSignup{
+  background-color: rgba(244, 244, 244, 0.7);
+  padding: 2rem;
+  }
+/* ------------------------------icone mon profil profiledetail.html */
+.rowProfile{
+  padding: 3rem;
+}
+
+/* --------------------------formulaire de modification de profil */
+.labelProfile{
+  list-style-type: none;
+  display: inline;
+  padding: 0.4rem;
+
+}
 /* --------------------------------------------------Post */
 
 
