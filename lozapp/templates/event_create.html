@@ -4,65 +4,26 @@
 <!-- Header -->
 
 <div class="top-bar">
-
     <div class="top-bar-left">
         <ul class="menu">
           <li class="menu-text" role="menuitem" tabindex="0"><a href="{% url "home-page" %}">Loz'Events.com</a></li>
-
         </ul>
     </div>
-
 </div>
 
 <!-- texte d'intro -->
 
-<div class="row medium-8 large-7 columns">
-<div class="text-center">
-<h3>Postez ici votre évenement</h3>
+  <div class="row medium-8 large-7 columns">
+    <div class="text-center">
+      <h3>Postez ici votre évenement</h3>
 
-<p>Postez ici votre évenement, il sera en ligne très prochainement.</p>
-</div>
-</div>
+      <p>Postez ici votre évenement, il sera en ligne très prochainement.</p>
+    </div>
+  </div>
 
 <!-- formulaire de post -->
 
 <div class="row medium-8 large-7 columns">
-  <!-- <div class="medium-6 medium-centered large-4 large-centered columns"> -->
-
-    <!-- <form>
-      <div class="row column log-in-form">
-        <h4 class="text-center">Poster votre evenement</h4>
-        <label>nom
-          <input type="text" placeholder="name">
-        </label>
-        <label>date
-          <input type="date" placeholder="">
-        </label>
-        <label>Prix
-          <input type="number" placeholder="">
-        </label>
-        <label>Categories
-            <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-            </select>
-        </label>
-        <label for="exampleFileUpload" class="button">Upload File</label>
-        <input type="file" id="exampleFileUpload" class="show-for-sr">
-        <button class="button expanded" data-open="exampleModal1">Poster</button>
-        <p><a type="submit" class="button expanded" data-open="exampleModal1">Poster</a></p>
-      </div>
-    </form> -->
-
-
-
-
-
-
-
-
 
     <form class="log-in-form" role="form" name="form" action="/event/create" method="post" enctype="multipart/form-data" >
      {% csrf_token %}
@@ -77,18 +38,10 @@
        <button type="submit" class="button expanded">Valider</button>
 
     </form>
-
-
-
-
-
-
-
-
   </div>
-</div>
 
-<!-- fenetre modale -->
+
+<!-- fenetre modale
 <div class="reveal" id="exampleModal1" data-reveal>
   <h1>Awesome. I Have It.</h1>
   <p class="lead">Your couch. It is mine.</p>
@@ -97,5 +50,5 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-
+ -->
 {% endblock %}
