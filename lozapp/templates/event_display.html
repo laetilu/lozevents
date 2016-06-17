@@ -39,8 +39,8 @@
 <script type="text/javascript">
 function map_init_basic (map, options) {
 
-    var marker = L.marker([{{event.addr.poly.y|stringformat:".5f"}}, {{event.addr.poly.x|stringformat:".5f"}}]).addTo(map).bindPopup('{{event.title}}');
-    map.setView({lat:{{event.addr.poly.y|stringformat:".5f"}}, lng:{{event.addr.poly.x|stringformat:".5f"}}}, 12)
+    var marker = L.marker([{{event.addr.poly.y|stringformat:"5f"}}, {{event.addr.poly.x|stringformat:"5f"}}]).addTo(map).bindPopup('{{event.title}}');
+    map.setView({lat:{{event.addr.poly.y|stringformat:"5f"}}, lng:{{event.addr.poly.x|stringformat:"5f"}}}, 12);
    // map.setView(marker.latLng);
 }
 </script>
