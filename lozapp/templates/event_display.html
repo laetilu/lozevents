@@ -16,11 +16,18 @@
 <!-- ---------------------------info evenements -->
 
 <div class="row medium-8 large-7 columns">
+
   <p class="alert label">{{event.categorie}}</p>
     <div class="infoevent">
+      <div class="row">
+      <div class="medium-6 columns">
         <div class="text-center">
             <p><img class="thumbnail" src="/media/{{event.photo}}"></p>
         </div>
+      </div>
+      </div>
+      <div class="row">
+      <div class="medium-6 columns">
         <div class="eventdisplayinfo">
             <p class="lead">{{event.title}}</p>
             <p class="event-desc">{{event.desc|safe}}</p>
@@ -29,7 +36,10 @@
             Date de fin : {{event.end_date}}<br>
             Adresse : {{event.addr}}<br></p>
         </div>
+      </div>
    </div>
+
+</div>
 </div>
 
 
