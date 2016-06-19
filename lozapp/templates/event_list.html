@@ -21,7 +21,7 @@
             <script type="text/javascript">
             function map_init_basic (map, options) {
                 {% for event in events %}
-                L.marker([{{event.addr.poly.y|stringformat:".3f"}}, {{event.addr.poly.x|stringformat:".3f"}}]).addTo(map).bindPopup('{{event.title}}');
+                L.marker([{{event.addr.poly.y|stringformat:".3f"}}, {{event.addr.poly.x|stringformat:".3f"}}]).addTo(map).bindPopup('<a href="{{event.slug}}">{{event.title}}</a>');
                 {% endfor %}
             }
             </script>

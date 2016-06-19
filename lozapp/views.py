@@ -15,7 +15,8 @@ class HomepageTemplateView(TemplateView):
 
    def get_context_data(self, **kwargs):
        context = super(HomepageTemplateView, self).get_context_data(**kwargs)
-       context["events"] = Event.objects.order_by('begin_date')
+       context["events_a_venir"] = Event.objects.order_by('begin_date')
+       context["events_ajoute"] = Event.objects.order_by('date_creation')
        return context
 
 def event_display(request, slug):
