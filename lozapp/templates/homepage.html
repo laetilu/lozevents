@@ -39,7 +39,7 @@
         </div>
 
         <div class="text-center">
-            <h3 id="events_cat">Les événements par catégorie</h3>
+            <h3>Les événements par catégorie</h3>
         </div>
 
         <div class="row small-up-1 medium-up-2 large-up-4">
@@ -63,7 +63,7 @@
             <div class="image-wrapper overlay-fade-in">
               <img class="thumbnail " src="/static/img/coursthumbnail.jpg">
               <div class="image-overlay-content">
-                <a href="/event/list?category=3" class="button hollow">Cours & Ateliers</a>
+                <a href="/event/list?category=3" class="button">Cours & Ateliers</a>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
             <div class="image-wrapper overlay-fade-in">
                 <img class="thumbnail " src="/static/img/patrimoine.jpg">
               <div class="image-overlay-content">
-                <a href="/event/list?category=4" class="button hollow">Patrimoine</a>
+                <a href="/event/list?category=4" class="button">Patrimoine</a>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@
               <div class="image-wrapper overlay-fade-in">
                   <img class="thumbnail imgCat" src="/static/img/sportun.jpg">
                 <div class="image-overlay-content">
-                  <a href="/event/list?category=5" class="button large hollow">Sport</a>
+                  <a href="/event/list?category=5" class="button">Sport</a>
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@
               <div class="image-wrapper overlay-fade-in">
                 <img class="thumbnail" src="/static/img/fetes.jpg">
                 <div class="image-overlay-content">
-                  <a href="/event/list?category=6" class="button large hollow">Fêtes</a>
+                  <a href="/event/list?category=6" class="button">Fêtes</a>
                 </div>
               </div>
             </div>
@@ -102,11 +102,11 @@
 
       <div class="large-4 columns">
           <div class="text-center">
-              <h3>A Venir</h3>
+              <h3>Dernières Actus</h3>
           </div>
           <div class="responsive">
 
-              {% for event in events_a_venir %}
+              {% for event in events %}
               <div>
                   <div class="image-wrapper overlay-fade-in">
                       <img class="thumbnail imgCat" src="/media/{{event.photo}}">
@@ -118,25 +118,6 @@
               </div>
               {% endfor %}
           </div>
-          <div class="text-center">
-              <h3 id="actus">Dernières Actus</h3>
-          </div>
-
-          <div class="responsive">
-
-              {% for event in events_ajoute %}
-              <div>
-                  <div class="image-wrapper overlay-fade-in">
-                      <img class="thumbnail imgCat" src="/media/{{event.photo}}">
-                      <div class="image-overlay-content">
-                          <h3>{{event.categorie}}</h3>
-                          <a href="event/{{event.slug}}">{{event.begin_date}}<br>{{event.title}}</a>
-                      </div>
-                  </div>
-              </div>
-              {% endfor %}
-          </div>
-
           <div id="fb-root"></div>
               <script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
