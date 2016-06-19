@@ -5,51 +5,44 @@
 {% block content_title %}<h2>{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %}
 
 {% block content %}
-<div class="row medium-8 large-7 columns rowProfile">
+<div class="row small-up-2 medium-up-3 large-up-5 rowProfile">
 
-
-  <div class="row small-up-2 large-up-3 ">
-
-
-  <!-- <div class=""> -->
     {% block profile_navigation %}
       {% comment %}Dirty hack. Will use django-guardian in the future.{% endcomment %}
       {% if user.username == profile.user.username %}
 
           {% block profile_navigation_items %}
-          <div class="column">
-            <div class="text-center">
-            <img class="iconeprofile" src="/static/img/profile.png" alt="">
-            <p><a href="{% url 'userena_profile_detail' user.username %}" class="button hollow">{% trans "View profile" %}</a></p>
-            </div>
-          </div>
             <div class="column">
-              <div class="text-center">
-              <img class="iconeprofile" src="/static/img/account.png" alt=""/>
-              <p><a href="{% url 'userena_profile_edit' user.username %}" class="button hollow">{% trans "Edit details" %}</a></p>
+             <div class="rond center">
+              <i class="fa fa-user" aria-hidden="true"></i>
+             </div>
+             <p class="fatexte"><a href="{% url 'userena_profile_detail' user.username %}" class="button buttonfa">{% trans "View profile" %}</a></p>
             </div>
-          </div>
             <div class="column">
-              <div class="text-center">
-              <img class="iconeprofile" src="/static/img/password.png" alt=""/>
-              <p><a href="{% url 'userena_password_change' user.username %}" class="button hollow">{% trans "Change password" %}</a></p>
+              <div class="rond center">
+               <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+             </div>
+             <p class="fatexte"><a href="{% url 'userena_profile_edit' user.username %}" class="button buttonfa">{% trans "Edit details" %}</a></p>
             </div>
-          </div>
-          </div>
-          <div class="row small-up-1 large-up-2 rowProfile">
             <div class="column">
-              <div class="text-center">
-              <img class="iconeprofile" src="/static/img/email.png" alt=""/>
-              <p><a href="{% url 'userena_email_change' user.username %}" class="button hollow">{% trans "Change email" %}</a></p>
+              <div class="rond center">
+               <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+              </div>
+              <p class="fatexte"><a href="{% url 'userena_password_change' user.username %}" class="button buttonfa">{% trans "Change password" %}</a></p>
             </div>
-          </div>
             <div class="column">
-              <div class="text-center">
-              <img class="iconeprofile" src="/static/img/eventicone.png" alt=""/>
-              <p><a href="{% url 'event-create' %}" class="button hollow">Créer un événement</a></p>
+              <div class="rond center">
+               <i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+              <p class="fatexte"><a href="{% url 'userena_email_change' user.username %}" class="button buttonfa">{% trans "Change email" %}</a></p>
             </div>
-          </div>
-          </div>
+            <div class="column">
+              <div class="rond center">
+               <i class="fa fa-calendar" aria-hidden="true"></i>
+              </div>
+             <p class="fatexte"><a href="{% url 'event-create' %}"class="button buttonfa">Créer un événement</a></p>
+           </div>
+
           {% endblock %}
 
       {% endif %}

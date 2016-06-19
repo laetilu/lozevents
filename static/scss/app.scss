@@ -83,9 +83,6 @@ h1,h3 {
 .rowHome {
 	padding: 2rem;
 }
-.rowFooter{
-	margin-top: 2rem;
-}
 
 .button.hollow, .button.hollow:hover, .button.hollow:focus {
     background-color: rgba(195, 0, 22, 0.72);
@@ -356,7 +353,10 @@ p {
 .dateeventlist{
   font-size: smaller;
 }
-
+.lead{
+font-weight: bolder;;
+color: #5d4459;
+}
 /* -----------------------------------------------------------event display */
 .eventdisplayinfo{
   text-align: justify;
@@ -366,7 +366,9 @@ p {
   background-color: #f8f8f8 !important;
   padding: 2rem !important;
 }
-
+.eventtext{
+  font-weight: bolder;
+}
 
 /* -----------------------------------------------------------form signup */
 .formcol{
@@ -376,13 +378,13 @@ p {
 
 .rowPart{
   margin: 0;
-  padding: 0;
+  padding: 3rem;
   background-image: url('/static/img/fetehome.jpg');
   background-size: cover;
 }
 .rowPro{
   margin: 0;
-  padding: 0;
+  padding: 3rem;
   background-image: url('/static/img/sporttrois.jpeg');
   background-size: cover;
 }
@@ -394,7 +396,34 @@ p {
 .rowProfile{
   padding: 3rem;
 }
+.center {
+    margin: auto;
+}
 
+.rond {
+    display: block;
+    overflow: hidden;
+    background-color: rgba(93, 68, 89, 0.8);
+    /* border-radius: 50px; */
+    width: 100px;
+    line-height: 100px;
+    height: 100px;
+    font-size: 3em;
+    color: #fff;
+    text-align: center;
+    -webkit-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+.buttonfa{
+  width: 100px;
+}
+  .fatexte {
+    text-align: center;
+    padding: 0.8rem;
+
+}
 /* -------------------------------------formulaire de modification de profil */
 .labelProfile{
   list-style-type: none;
@@ -423,4 +452,15 @@ $form-radius: $global-radius;
   border: 1px solid $form-border-color;
   padding: $form-padding;
   border-radius: $form-radius;
+}
+
+
+/* -----------------------------------------------------------footer */
+.rowFooter{
+background-color: rgba(93, 68, 89, 0.2);
+padding: 4rem;
+}
+
+.afooter {
+    color: #5d4459;
 }

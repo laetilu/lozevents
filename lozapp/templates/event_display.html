@@ -25,16 +25,15 @@
             <p><img class="thumbnail" src="/media/{{event.photo}}"></p>
         </div>
       </div>
-      </div>
-      <div class="row">
+
       <div class="medium-6 columns">
         <div class="eventdisplayinfo">
             <p class="lead">{{event.title}}</p>
-            <p class="event-desc">{{event.desc|safe}}</p>
-            <p>Organisateur, pro : {{event.pro}}<br>
-            Date de debut : {{event.begin_date}}<br>
-            Date de fin : {{event.end_date}}<br>
-            Adresse : {{event.addr}}<br></p>
+            <p class="event-desc">{{event.desc|safe}}<br></p>
+            <p><span class="eventtext">Organisateur:</span> {{event.pro}}<br>
+            <span class="eventtext">Date de debut :</span> {{event.begin_date}}<br>
+            <span class="eventtext">Date de fin :</span> {{event.end_date}}<br>
+            <span class="eventtext">Adresse :</span> {{event.addr}}<br></p>
         </div>
       </div>
    </div>
