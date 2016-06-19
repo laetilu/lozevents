@@ -111,7 +111,7 @@ $global-radius: 4px;
 }
 
 .image-overlay-content {
-  width: 100%;
+  width: 90%;
   height: 100%;
   position: absolute;
   overflow: hidden;
@@ -197,6 +197,7 @@ p {
 
   img {
     transition: all 0.3s ease-in-out;
+
   }
 
   .image-overlay-content {
@@ -300,6 +301,7 @@ p {
 
   img{
     transition: all 0.2s ease-in-out;
+    text-align: center;
   }
 
   &:hover img {
